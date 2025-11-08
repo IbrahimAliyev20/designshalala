@@ -1,0 +1,13 @@
+{
+    "home": {
+        "title": "HR-vacancies",
+        "description": "HR-vacancies"
+    },
+    "navigation": {
+        "about": "About",
+        "product": "Product"
+    },
+    "buttons":{
+        "button_hero":"Discover"
+    }
+}
