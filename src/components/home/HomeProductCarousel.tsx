@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import * as React from "react"; // useRef üçün import etdik
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import products from "@/utils/product";
@@ -10,20 +10,23 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+
+// Autoplay plugin-i import edirik
 import Autoplay from "embla-carousel-autoplay";
 
 export function HomeProductCarousel() {
   const allProducts = products;
 
+  // Plugin-i useRef ilə yaradırıq
   const plugin = React.useRef(
     Autoplay({
-      delay: 2000,
-      stopOnInteraction: true,
+      delay: 2000, // Hər 2 saniyədən bir dəyişsin
+      stopOnInteraction: true, // İstifadəçi toxunduqda (dartdıqda) dayansın
     })
   );
 
   return (
-    <section className="py-12 md:py-24">
+    <section className="py-12 md:py-24 ">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-xl md:text-3xl font-bold text-gray-900">
@@ -52,8 +55,7 @@ export function HomeProductCarousel() {
             {allProducts.map((product) => (
               <CarouselItem
                 key={product.id}
-                // DƏYİŞİKLİK: basis-[100%] -> basis-4/5 (80%)
-                className="pl-4 basis-4/5 md:basis-1/4"
+                className="pl-4 basis-[100%] md:basis-1/4"
               >
                 <CardProduct product={product} />
               </CarouselItem>
