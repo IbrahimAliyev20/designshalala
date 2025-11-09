@@ -33,7 +33,7 @@ export default function AboutPage() {
           </h2>
           <div className="text-base md:text-lg text-gray-700 space-y-4 leading-relaxed">
             <p>
-              "Designed Shalala" bir ehtirasdan, gözəlliyə olan sevgidən və ən
+              Designed Shalala bir ehtirasdan, gözəlliyə olan sevgidən və ən
               xüsusi anları daha da mənalı etmək arzusundan yarandı. Biz hər bir
               kompozisiyanı bir sənət əsəri kimi görürük.
             </p>

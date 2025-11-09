@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Product } from "@/utils/product";
-import { Heart, ShoppingCart } from "lucide-react"; 
+import { ShoppingCart } from "lucide-react"; 
 import { RainbowButton } from "../ui/rainbow-button";
 
 import { useCart } from "@/context/CartContext";
