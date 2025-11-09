@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Product } from "@/utils/product";
 import { ShoppingCart } from "lucide-react"; 
+import { RainbowButton } from "../ui/rainbow-button";
 
 import { useCart } from "@/context/CartContext";
 
@@ -65,14 +66,14 @@ export function CardProduct({ product }: CardProductProps) {
             </p>
           </div>
 
-          {/* <RainbowButton
+          <RainbowButton
             variant="default"
             className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto" 
             onClick={handleAddToCart}
           >
             <ShoppingCart className="w-5 h-5 md:hidden" />
             <span className="hidden md:block">Səbətə at</span>
-          </RainbowButton> */}
+          </RainbowButton>
         </div>
       </div>
     </Card>

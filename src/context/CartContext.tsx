@@ -5,6 +5,7 @@ import React, {
   useContext,
   useState,
   useEffect,
+  useMemo,
   ReactNode,
 } from "react";
 import { Product } from "@/utils/product"; 
@@ -34,16 +35,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (isClient) {
-      const storedCart = localStorage.getItem("shalala_cart");
-      if (storedCart) {
-        setCartItems(JSON.parse(storedCart));
+      try {
+        const storedCart = localStorage.getItem("shalala_cart");
+        if (storedCart) {
+          setCartItems(JSON.parse(storedCart));
+        }
+      } catch (error) {
+        console.warn('LocalStorage xətası:', error);
       }
     }
   }, [isClient]); 
 
   useEffect(() => {
-    if (isClient) {
-      localStorage.setItem("shalala_cart", JSON.stringify(cartItems));
+    if (isClient && cartItems.length > 0) {
+      try {
+        localStorage.setItem("shalala_cart", JSON.stringify(cartItems));
+      } catch (error) {
+        console.warn('LocalStorage yazma xətası:', error);
+      }
     }
   }, [cartItems, isClient]); 
 
@@ -92,9 +101,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  const totalItemCount = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
+  const totalItemCount = useMemo(() => 
+    cartItems.reduce((total, item) => total + item.quantity, 0), 
+    [cartItems]
   );
 
   return (
@@ -118,4 +127,4 @@ export const useCart = () => {
     throw new Error("useCart mütləq CartProvider daxilində istifadə olunmalıdır");
   }
   return context;
-};
+}; 
