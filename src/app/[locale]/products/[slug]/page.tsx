@@ -59,9 +59,7 @@ export default function ProductDetailPage() {
               alt={product.title}
               width={800}
               height={800}
-              // DƏYİŞİKLİK: object-cover -> object-contain
               className="w-full h-full object-contain transition-opacity duration-300"
-              priority
             />
           </div>
           <div className="grid grid-cols-5 gap-2 md:gap-4">
@@ -82,7 +80,6 @@ export default function ProductDetailPage() {
                   alt={`${product.title} qalereya ${index + 1}`}
                   width={150}
                   height={150}
-                  // DƏYİŞİKLİK: object-cover -> object-contain
                   className="w-full h-full object-contain"
                 />
               </button>

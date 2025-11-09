@@ -16,9 +16,9 @@ export function AboutSec() {
             <Image
               src="/images/bgaboutsec.jpg"
               alt="Əl işi hədiyyələr"
-              layout="fill"
-              objectFit="cover"
-              className="transition-transform duration-500 hover:scale-105"
+              width={1000}
+              height={600}
+              className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
 

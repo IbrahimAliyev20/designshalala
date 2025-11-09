@@ -10,9 +10,9 @@ function ProductsListingPage() {
              <Image
                src="/images/ctabg.png"
                alt="Haqqımızda arxa fon"
-               layout="fill"
-               objectFit="cover"
-               className="absolute inset-0 z-0 opacity-40"
+                width={1000}
+                height={400}
+               className="absolute object-cover inset-0 z-0 opacity-40 h-full w-full"
              />
              <div className="absolute inset-0 bg-black/30 z-10" />
      

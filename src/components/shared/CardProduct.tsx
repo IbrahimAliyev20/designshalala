@@ -34,7 +34,6 @@ export function CardProduct({ product }: CardProductProps) {
               alt={product.title}
               width={600}
               height={500}
-              // DƏYİŞİKLİK: object-cover -> object-contain
               className="object-contain relative w-full h-full"
             />
             <div className="absolute top-3 left-3 md:top-5 md:left-3 flex gap-2 mb-2">
