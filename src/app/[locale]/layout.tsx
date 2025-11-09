@@ -11,6 +11,8 @@ import { Toaster } from "sonner";
 import { Header } from "@/components/navigation/header";
 import { Footer } from "@/components/navigation/footer";
 
+import { CartProvider } from "@/context/CartContext";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -22,8 +24,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HR-vakansiyaları",
-  description: "HR-vakansiyaları",
+  title: "Designed Shalala - Zərif Toxunuşlar",
+  description: "Xonçalar, Gül və Şokolad kompozisiyaları",
 };
 
 export default async function RootLayout({
@@ -45,12 +47,14 @@ export default async function RootLayout({
       >
         <QueryProvider>
           <NextIntlClientProvider messages={messages}>
-            <div className="min-h-screen">
-              <Header />
-              {children}
-              <Footer />
-            </div>
-            <Toaster position="top-center" richColors />
+            <CartProvider>
+              <div className="min-h-screen">
+                <Header />
+                {children}
+                <Footer />
+              </div>
+              <Toaster position="top-center" richColors closeButton />
+            </CartProvider>
           </NextIntlClientProvider>
         </QueryProvider>
       </body>

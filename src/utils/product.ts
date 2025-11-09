@@ -65,9 +65,9 @@ export const products: Product[] = [
   },
   {
     id: 3,
-    slug: "ehtirasli-qizilgul-buketi",
+    slug: "qizilgul-buketi",
     category: "Gül",
-    title: "Ehtiraslı Qızılgül Buketi",
+    title: "Qızılgül Buketi",
     short_description: "51 ədəd premium holland qızılgülündən ibarət buket.",
     long_description:
       "Sevginizi ifadə etməyin ən gözəl yolu. Hər bir qızılgül xüsusi diqqətlə seçilmişdir və təzəliyini uzun müddət qoruyur.",

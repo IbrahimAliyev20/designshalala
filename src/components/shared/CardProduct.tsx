@@ -1,22 +1,31 @@
-"use client"; // DÜZƏLİŞ: Bu sətir interaktiv komponentlər üçün mütləqdir
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Product } from "@/utils/product"; // Tiplərinizin olduğu yolu düzgün yoxlayın
+import { Product } from "@/utils/product";
 import { Heart } from "lucide-react";
-import { RainbowButton } from "../ui/rainbow-button"; // Düymənizin yolunu yoxlayın
+import { RainbowButton } from "../ui/rainbow-button";
+
+import { useCart } from "@/context/CartContext";
 
 type CardProductProps = {
   product: Product;
 };
 
 export function CardProduct({ product }: CardProductProps) {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart(product, 1);
+  };
+
   return (
     <Card className="rounded-xl overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
       <div className="relative w-full overflow-hidden h-[250px]">
-        {/* Heart Icon Button */}
         <Button
           size="icon"
           variant="ghost"
@@ -57,14 +66,17 @@ export function CardProduct({ product }: CardProductProps) {
         <div className="flex-1" />
         <div className="flex justify-between items-center mt-auto">
           <div>
-            <p className="text-xs text-gray-500 font-semibold mb-1">
-              Qiymət
-            </p>
+            <p className="text-xs text-gray-500 font-semibold mb-1">Qiymət</p>
             <p className="text-2xl font-semibold text-gray-900">
               {product.price} AZN
             </p>
           </div>
-          <RainbowButton variant="default" className="pointer-events-auto z-20">
+
+          <RainbowButton
+            variant="default"
+            className="pointer-events-auto z-20"
+            onClick={handleAddToCart}
+          >
             Səbətə at
           </RainbowButton>
         </div>

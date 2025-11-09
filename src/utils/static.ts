@@ -1,5 +1,5 @@
 export const navigationItems = [
     { label: "about", href: "/about" },
-    { label: "product", href: "/product" },
+    { label: "product", href: "/products" },
   ]
 

@@ -8,7 +8,6 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { navigationItems } from "@/utils/static";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ShimmerButton } from "../ui/shimmer-button";
 
 export function MobileMenu() {
@@ -17,6 +16,7 @@ export function MobileMenu() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
+      {/* Trigger Button */}
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -28,13 +28,14 @@ export function MobileMenu() {
         </Button>
       </SheetTrigger>
 
-      {/* Sheet (Menu Panel) */}
+      {/* Sheet Content */}
       <SheetContent
         side="right"
         className="w-[70%] sm:w-[55%] md:hidden
-            bg-black/60 backdrop-blur-xl border-l border-white/10
-            text-white flex flex-col justify-between overflow-y-auto shadow-2xl"
+          bg-black/60 backdrop-blur-xl border-l border-white/10
+          text-white flex flex-col justify-between overflow-y-auto shadow-2xl"
       >
+        {/* Logo */}
         <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
           <Link href="/" onClick={() => setOpen(false)}>
             <Image
@@ -47,38 +48,30 @@ export function MobileMenu() {
           </Link>
         </div>
 
-        <motion.nav
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4 }}
-          className="flex-1 px-6 py-6"
-        >
+        {/* Navigation Items */}
+        <nav className="flex-1 px-6 py-6">
           <ul className="space-y-3">
-            {navigationItems.map((item, index) => (
-              <motion.li
-                key={item.href}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
+            {navigationItems.map((item) => (
+              <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className="block px-4 py-3 rounded-lg text-lg text-gray-300 
-                      hover:text-white hover:bg-white/10 transition-all duration-300
-                      hover:translate-x-2"
+                    hover:text-white hover:bg-white/10 transition-all duration-300
+                    hover:translate-x-2"
                 >
                   {t(item.label)}
                 </Link>
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.nav>
+        </nav>
 
+        {/* Contact Button */}
         <div className="px-6 py-6 border-t border-white/10">
           <Link href="/contact" onClick={() => setOpen(false)}>
             <ShimmerButton className="shadow-2xl pointer-events-auto z-20 w-full">
-              <span className="text-center  px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
+              <span className="text-center px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
                 {t("contact")}
               </span>
             </ShimmerButton>
