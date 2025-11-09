@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import RotatingText from "../RotatingText";
 import { ShimmerButton } from "../ui/shimmer-button";
+import Link from "next/link";
 
 export default async function BannerHero() {
   const t = await getTranslations("buttons");
@@ -44,13 +45,13 @@ export default async function BannerHero() {
         </h1>
       </div>
 
-      <div className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35">
+      <Link href="/products" className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35">
         <ShimmerButton className="shadow-2xl pointer-events-auto z-20 w-[40%] md:w-auto">
           <span className="text-center px-6 md:px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
             {t("button_hero")}
           </span>
         </ShimmerButton>
-      </div>
+      </Link>
     </div>
   );
 }
