@@ -50,7 +50,7 @@ export function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-1 md:gap-6">
             <LanguageSelector />
             
             <Link href="/basket" className="relative">

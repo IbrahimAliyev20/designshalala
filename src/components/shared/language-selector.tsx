@@ -26,18 +26,17 @@ function LanguageSelector() {
 
     return (
         <Popover open={isOpen} onOpenChange={setIsOpen}>
-            <PopoverTrigger asChild>
-                {/* === DƏYİŞİKLİK BURADADIR === */}
+            <PopoverTrigger asChild >
                 <Button 
                     variant="ghost" 
                     size="sm" 
-                    className="text-sm hover:bg-black/1 text-gray-300 hover:text-white focus-visible:ring-white"
+                    className="text-sm  hover:bg-black/1 text-gray-300 hover:text-white focus-visible:ring-white"
                 >
                     {activeLocale.toUpperCase()}
-                    <ChevronDown className="ml-1 h-4 w-4" />
+                    <ChevronDown className=" h-4 w-4" />
                 </Button>
             </PopoverTrigger>
-            <PopoverContent align="end" className="w-fit p-2">
+            <PopoverContent align="end" className="w-fit p-1">
                 <div className="flex flex-col gap-1">
                     {locales.map((locale) => (
                         <button
