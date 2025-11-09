@@ -43,7 +43,7 @@ export default function BasketPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
+    <div className=" bg-gray-50 py-8 px-4">
       <div className="max-w-7xl mx-auto pt-16 md:pt-20">
         <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8 tracking-tight">
           SƏBƏTİNİZ
@@ -53,7 +53,7 @@ export default function BasketPage() {
             {cartItems.length === 0 ? (
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
                 <p className="text-lg text-gray-500">Səbətiniz boşdur.</p>
-                <Link href="/products" legacyBehavior>
+                <Link href="/products" >
                   <a className="inline-block mt-4 bg-black text-white py-3 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors cursor-pointer">
                     Məhsullara Bax
                   </a>

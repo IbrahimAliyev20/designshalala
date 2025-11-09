@@ -48,7 +48,7 @@ export default async function RootLayout({
         <QueryProvider>
           <NextIntlClientProvider messages={messages}>
             <CartProvider>
-              <div className="min-h-screen bg-red-100/10">
+              <div className="bg-red-100/10">
                 <Header />
                 {children}
                 <Footer />
