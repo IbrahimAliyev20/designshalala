@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { RainbowButton } from "../ui/rainbow-button"; // Sizin xüsusi düyməniz
 
 export function AboutSec() {
   return (
@@ -34,7 +33,7 @@ export function AboutSec() {
               Hər bir kompozisiya, xonça və buket, sizin ən xüsusi anlarınızı
               unudulmaz etmək üçün zərifliklə, əl ilə hazırlanır.
             </p>
-            <RainbowButton asChild>
+            {/* <RainbowButton asChild>
               <Link
                 href="/about"
                 className="flex items-center gap-2 text-sm md:text-base px-6 py-5"
@@ -42,7 +41,7 @@ export function AboutSec() {
                 Haqqımızda Daha Ətraflı
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </RainbowButton>
+            </RainbowButton> */}
           </div>
         </div>
       </div>

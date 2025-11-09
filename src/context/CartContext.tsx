@@ -26,35 +26,27 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  
-  // DƏYİŞİKLİK 1: Cihazın "client" olduğunu təsdiqləmək üçün state
   const [isClient, setIsClient] = useState(false);
 
-  // DƏYİŞİKLİK 2: Səhifənin artıq client-də olduğuna əmin oluruq
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // Səhifə yüklənəndə datanı localStorage-dan oxu
   useEffect(() => {
-    // DƏYİŞİKLİK 3: YALNIZ client-də olduğumuza əmin olduqdan sonra localStorage-ı oxuyuruq
     if (isClient) {
       const storedCart = localStorage.getItem("shalala_cart");
       if (storedCart) {
         setCartItems(JSON.parse(storedCart));
       }
     }
-  }, [isClient]); // Artıq [isClient]-dən asılıdır
+  }, [isClient]); 
 
-  // Səbət dəyişəndə datanı localStorage-a yaz
   useEffect(() => {
-    // DƏYİŞİKLİK 3: YALNIZ client-də olduğumuza əmin olduqdan sonra localStorage-a yazırıq
     if (isClient) {
       localStorage.setItem("shalala_cart", JSON.stringify(cartItems));
     }
-  }, [cartItems, isClient]); // isClient-dən asılıdır
+  }, [cartItems, isClient]); 
 
-  // Səbətə məhsul əlavə etmə funksiyası
   const addToCart = (product: Product, quantity: number) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
@@ -73,7 +65,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     toast.success(`"${product.title}" səbətə əlavə olundu`);
   };
 
-  // Səbətdən məhsul silmə funksiyası
   const removeFromCart = (productId: number) => {
     let removedItemTitle = "";
     setCartItems((prevItems) => {
@@ -89,7 +80,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Məhsul sayını dəyişmə funksiyası
   const updateQuantity = (productId: number, change: number) => {
     setCartItems((prevItems) =>
       prevItems
@@ -102,7 +92,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  // Header-da göstərmək üçün ümumi məhsul sayı
   const totalItemCount = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
@@ -123,7 +112,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// Konteksti asan istifadə etmək üçün xüsusi hook
 export const useCart = () => {
   const context = useContext(CartContext);
   if (context === undefined) {

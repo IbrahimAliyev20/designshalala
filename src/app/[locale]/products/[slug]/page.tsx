@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ShoppingCart, Plus, Minus, ChevronRight, Check } from "lucide-react";
 
 import products from "@/utils/product";
-import { RainbowButton } from "@/components/ui/rainbow-button";
 import Link from "next/link";
 
 import { useCart } from "@/context/CartContext";
@@ -140,14 +139,14 @@ export default function ProductDetailPage() {
               </button>
             </div>
 
-            <RainbowButton
+            {/* <RainbowButton
               variant="default"
               className="flex-1 w-full text-base md:text-lg py-5 md:py-6"
               onClick={handleAddToCart}
             >
               <ShoppingCart size={20} className="mr-2" />
               Səbətə Əlavə Et
-            </RainbowButton>
+            </RainbowButton> */}
           </div>
         </div>
       </div>
