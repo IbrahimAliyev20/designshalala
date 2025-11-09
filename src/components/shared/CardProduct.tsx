@@ -24,15 +24,9 @@ export function CardProduct({ product }: CardProductProps) {
   };
 
   return (
-    <Card className="rounded-xl overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
+    <Card className="rounded-xl  overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
       <div className="relative w-full overflow-hidden h-[200px] md:h-[250px]">
-        <Button
-          size="icon"
-          variant="ghost"
-          className="absolute top-2 right-2 md:top-4 md:right-4 z-10 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/30 border border-white/40 transition-all w-8 h-8 md:w-auto md:h-auto"
-        >
-          <Heart className="w-4 h-4 md:w-5 md:h-5 text-white" />
-        </Button>
+    
 
         <Link href={`/products/${product.slug}`} className="h-full">
           <div className="relative w-full h-full flex items-center justify-center p-4"> {/* DƏYİŞİKLİK: Şəkilə p-4 (padding) əlavə etdim */}
@@ -53,7 +47,7 @@ export function CardProduct({ product }: CardProductProps) {
         </Link>
       </div>
 
-      <div className="pt-2 p-3 flex flex-col flex-1 bg-white">
+      <div className="pt-2 p-3 flex flex-col flex-1 ">
         <Link href={`/products/${product.slug}`}>
           <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-1 md:mb-2 hover:text-gray-700 transition-colors line-clamp-1">
             {product.title}

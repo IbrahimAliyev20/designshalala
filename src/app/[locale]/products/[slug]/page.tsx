@@ -35,9 +35,9 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28">
+    <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28 ">
       {/* Breadcrumbs */}
-      <div className="flex items-center text-sm text-gray-500 gap-1 mb-6">
+      <div className="flex items-center text-sm text-gray-500 gap-1 mb-6 ">
         <Link href="/" className="hover:text-gray-800">
           Ana Səhifə
         </Link>
@@ -49,10 +49,10 @@ export default function ProductDetailPage() {
         <span className="text-gray-800 font-medium">{product.title}</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start  ">
         
         {/* Şəkil Qalereyası */}
-        <div className="w-full flex flex-col gap-4">
+        <div className="w-full flex flex-col gap-4   rounded-xl ">
           <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm p-4"> {/* DƏYİŞİKLİK: p-4 əlavə etdim */}
             <Image
               src={product.gallery_images[selectedImage]}
@@ -91,7 +91,7 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Məlumat Hissəsi (responsiv kodlar qorunub) */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 bg-green-100/40 h-full justify-between p-6 rounded-xl ">
           <span className="text-sm font-medium text-blue-600">
             {product.category}
           </span>

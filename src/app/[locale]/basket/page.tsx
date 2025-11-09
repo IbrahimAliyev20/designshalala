@@ -39,8 +39,10 @@ export default function BasketPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-7xl mx-auto pt-16 md:pt-20"> {/* Mobil pt azaldıldı */}
+    <div className="min-h-screen  py-8 px-4">
+      <div className="max-w-7xl mx-auto pt-16 md:pt-20">
+        {" "}
+        {/* Mobil pt azaldıldı */}
         <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8 tracking-tight">
           SƏBƏTİNİZ
         </h1>
@@ -49,7 +51,7 @@ export default function BasketPage() {
           {/* Dəyişiklik: lg:col-span-2 -> md:col-span-2 */}
           <div className="md:col-span-2 space-y-4">
             {cartItems.length === 0 ? (
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+              <div className="bg-white/90 rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
                 <p className="text-lg text-gray-500">Səbətiniz boşdur.</p>
                 <Link href="/products" legacyBehavior>
                   <a className="inline-block mt-4 bg-black text-white py-3 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors">
@@ -83,7 +85,7 @@ export default function BasketPage() {
                         </h3>
                         <button
                           onClick={() => removeFromCart(item.id)}
-                          className="text-red-500 hover:text-red-700 p-1 -mt-1 -mr-1 md:p-2 md:-mt-2 md:-mr-2 transition-colors"
+                          className="text-red-500 hover:text-red-700 p-1 -mt-1 -mr-1 md:p-2 md:-mt-2 md:-mr-2 transition-colors cursor-pointer"
                         >
                           <Trash2 className="w-5 h-5" />
                         </button>
@@ -91,14 +93,12 @@ export default function BasketPage() {
 
                       <div className="space-y-1 mb-3">
                         <p className="text-sm text-gray-600">
-                          Kateqoriya:{" "}
-                          <span className="text-gray-900">{item.category}</span>{" "}
+                          Kateqoriya:
+                          <span className="text-gray-900">{item.category}</span>
                         </p>
                       </div>
 
-                      {/* Dəyişiklik: flex-col md:flex-row */}
                       <div className="flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between">
-                        {/* Dəyişiklik: text-xl md:text-2xl */}
                         <p className="text-xl md:text-2xl font-bold text-gray-900">
                           {item.price.toFixed(2)} AZN
                         </p>
@@ -107,7 +107,7 @@ export default function BasketPage() {
                         <div className="flex items-center gap-2 md:gap-3 bg-gray-100 rounded-full px-3 py-1.5 md:px-4 md:py-2">
                           <button
                             onClick={() => updateQuantity(item.id, -1)}
-                            className="text-gray-600 hover:text-gray-900 transition-colors w-6 h-6 flex items-center justify-center"
+                            className="text-gray-600 hover:text-gray-900 transition-colors w-6 h-6 flex items-center justify-center cursor-pointer"
                             aria-label="Sayını azalt"
                             disabled={item.quantity === 1}
                           >
@@ -118,7 +118,7 @@ export default function BasketPage() {
                           </span>
                           <button
                             onClick={() => updateQuantity(item.id, 1)}
-                            className="text-gray-600 hover:text-gray-900 transition-colors w-6 h-6 flex items-center justify-center"
+                            className="text-gray-600 hover:text-gray-900 transition-colors w-6 h-6 flex items-center justify-center cursor-pointer"
                             aria-label="Sayını artır"
                           >
                             <span className="text-xl font-medium">+</span>
@@ -131,11 +131,11 @@ export default function BasketPage() {
               ))
             )}
           </div>
-          
+
           {/* Dəyişiklik: lg:col-span-1 -> md:col-span-1 */}
           <div className="md:col-span-1">
             {/* Dəyişiklik: Səbət dolu olduqda mobildə sticky olmur, desktopda olur */}
-            <div className="bg-white rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 md:sticky md:top-28">
+            <div className="bg-white/90 rounded-2xl p-4 md:p-6 shadow-sm border border-gray-100 md:sticky md:top-28">
               <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-6">
                 Sifariş Xülasəsi
               </h2>
