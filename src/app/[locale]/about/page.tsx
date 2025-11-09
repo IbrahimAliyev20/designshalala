@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check, Sparkles, HandHeart } from "lucide-react";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 export default function AboutPage() {
   return (
@@ -96,9 +97,9 @@ export default function AboutPage() {
             İstər xonça, istər gül, istərsə də xüsusi hədiyyə olsun, bizə güvənə
             bilərsiniz.
           </p>
-          {/* <RainbowButton variant="default" className="py-6 px-8 text-lg">
+          <RainbowButton variant="default" className="py-6 px-8 text-lg">
             <Link href="/contact">İndi Əlaqə Saxlayın</Link>
-          </RainbowButton> */}
+          </RainbowButton>
         </div>
       </section>
     </div>
