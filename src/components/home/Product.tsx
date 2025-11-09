@@ -10,11 +10,9 @@ export function Product() {
   const allProducts = products;
 
   return (
-    // Dəyişiklik: sm:py-24 -> md:py-24
     <section className="py-12 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <Tabs defaultValue="Hamısı" className="w-full">
-          {/* Bu hissə onsuz da responsiv idi, olduğu kimi qaldı */}
           <TabsList className="w-full md:w-[60%] flex justify-start items-center gap-4 md:gap-8 bg-transparent border-b border-gray-200 rounded-none p-0 h-auto mb-12 overflow-x-auto">
             <TabsTrigger
               value="Hamısı"
@@ -74,9 +72,9 @@ export function Product() {
             })}
           </TabsList>
 
-          {/* Dəyişiklik: Grid mobildə 2 sütunlu, desktopda 4 sütunlu edildi */}
           <TabsContent value="Hamısı" className="mt-0">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {/* DƏYİŞİKLİK: grid-cols-1 (mobil) və gap-6 (ara boşluq) */}
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
               {allProducts.map((product) => (
                 <CardProduct key={product.id} product={product} />
               ))}
@@ -85,8 +83,8 @@ export function Product() {
 
           {categories.map((category) => (
             <TabsContent key={category} value={category} className="mt-0">
-              {/* Dəyişiklik: Grid mobildə 2 sütunlu, desktopda 4 sütunlu edildi */}
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+              {/* DƏYİŞİKLİK: grid-cols-1 (mobil) və gap-6 (ara boşluq) */}
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
                 {products
                   .filter((p) => p.category === category)
                   .map((product) => (

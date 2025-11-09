@@ -35,13 +35,14 @@ export function CardProduct({ product }: CardProductProps) {
         </Button>
 
         <Link href={`/products/${product.slug}`} className="h-full">
-          <div className="relative w-full h-full flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center p-4"> {/* DƏYİŞİKLİK: Şəkilə p-4 (padding) əlavə etdim */}
             <Image
               src={product.main_image}
               alt={product.title}
               width={600}
               height={500}
-              className="object-cover relative w-full h-full"
+              // DƏYİŞİKLİK: object-cover -> object-contain
+              className="object-contain relative w-full h-full"
             />
             <div className="absolute top-3 left-3 md:top-5 md:left-3 flex gap-2 mb-2">
               <span className="border-2 border-gray-300 rounded-md px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm font-medium text-gray-700 bg-white/80 backdrop-blur-sm">
@@ -54,7 +55,6 @@ export function CardProduct({ product }: CardProductProps) {
 
       <div className="pt-2 p-3 flex flex-col flex-1 bg-white">
         <Link href={`/products/${product.slug}`}>
-          {/* Dəyişiklik: text-base md:text-xl */}
           <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-1 md:mb-2 hover:text-gray-700 transition-colors line-clamp-1">
             {product.title}
           </h3>
@@ -75,7 +75,7 @@ export function CardProduct({ product }: CardProductProps) {
 
           <RainbowButton
             variant="default"
-            className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto" // Mobil üçün ölçü
+            className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto" 
             onClick={handleAddToCart}
           >
             <ShoppingCart className="w-5 h-5 md:hidden" />
@@ -85,4 +85,4 @@ export function CardProduct({ product }: CardProductProps) {
       </div>
     </Card>
   );
-} 
+}

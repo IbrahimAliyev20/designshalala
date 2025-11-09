@@ -36,7 +36,6 @@ export default function ProductDetailPage() {
   };
 
   return (
-    // Dəyişiklik: pt-20 əlavə edildi, py-8 silindi
     <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28">
       {/* Breadcrumbs */}
       <div className="flex items-center text-sm text-gray-500 gap-1 mb-6">
@@ -51,27 +50,28 @@ export default function ProductDetailPage() {
         <span className="text-gray-800 font-medium">{product.title}</span>
       </div>
 
-      {/* Dəyişiklik: lg:gap-16 -> md:gap-16 */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+        
         {/* Şəkil Qalereyası */}
         <div className="w-full flex flex-col gap-4">
-          <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm">
+          <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm p-4"> {/* DƏYİŞİKLİK: p-4 əlavə etdim */}
             <Image
               src={product.gallery_images[selectedImage]}
               alt={product.title}
               width={800}
               height={800}
-              className="w-full h-full object-cover transition-opacity duration-300"
+              // DƏYİŞİKLİK: object-cover -> object-contain
+              className="w-full h-full object-contain transition-opacity duration-300"
               priority
             />
           </div>
-          <div className="grid grid-cols-5 gap-2 md:gap-4"> {/* Mobil gap azaldıldı */}
+          <div className="grid grid-cols-5 gap-2 md:gap-4">
             {product.gallery_images.map((imgSrc, index) => (
               <button
                 key={index}
                 onClick={() => handleThumbnailClick(index)}
                 className={`aspect-square w-full overflow-hidden rounded-lg border-2 
-                            transition-all
+                            transition-all p-1 {/* DƏYİŞİKLİK: p-1 əlavə etdim */}
                             ${
                               selectedImage === index
                                 ? "border-blue-600 scale-105"
@@ -83,24 +83,23 @@ export default function ProductDetailPage() {
                   alt={`${product.title} qalereya ${index + 1}`}
                   width={150}
                   height={150}
-                  className="w-full h-full object-cover"
+                  // DƏYİŞİKLİK: object-cover -> object-contain
+                  className="w-full h-full object-contain"
                 />
               </button>
             ))}
           </div>
         </div>
 
-        {/* Məlumat Hissəsi */}
+        {/* Məlumat Hissəsi (responsiv kodlar qorunub) */}
         <div className="flex flex-col gap-4">
           <span className="text-sm font-medium text-blue-600">
             {product.category}
           </span>
-          {/* Dəyişiklik: text-2xl md:text-4xl */}
           <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
             {product.title}
           </h1>
           <div className="flex items-baseline gap-3 my-2">
-            {/* Dəyişiklik: text-2xl md:text-3xl */}
             <span className="text-2xl md:text-3xl font-bold text-gray-900">
               {product.price.toFixed(2)} AZN
             </span>
@@ -122,7 +121,6 @@ export default function ProductDetailPage() {
           </div>
           <div className="my-4 border-t border-gray-200" />
 
-          {/* Dəyişiklik: flex-col md:flex-row */}
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <div className="flex items-center justify-center rounded-full border border-gray-300 p-1 md:p-2">
               <button
