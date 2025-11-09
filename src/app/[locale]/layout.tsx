@@ -8,12 +8,8 @@ import { routing } from "@/i18n/routing";
 import { QueryProvider } from "@/providers/QueryProvider";
 import { Toaster } from "sonner";
 
-// --- Dəyişikliklər buradan başlayır ---
 import { Header } from "@/components/navigation/header";
-// 1. MobileMenu komponentini import edirik (yolu yoxlayın)
 import { Footer } from "@/components/navigation/footer";
-import MobilMenu from "@/components/navigation/mobilmenu";
-// --- Dəyişikliklər burada bitir ---
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -50,12 +46,7 @@ export default async function RootLayout({
         <QueryProvider>
           <NextIntlClientProvider messages={messages}>
             <div className="min-h-screen">
-              <div className="md:hidden">
-                <MobilMenu />
-              </div>
-              <div className="hidden md:block">
-                <Header />
-              </div>
+              <Header />
               {children}
               <Footer />
             </div>

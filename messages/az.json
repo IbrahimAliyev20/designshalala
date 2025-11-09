@@ -5,7 +5,8 @@
     },
     "navigation": {
         "about": "Haqqımızda",
-        "product": "Məhsullar"
+        "product": "Məhsullar",
+        "contact": "Əlaqə"
     },
     "buttons":{
         "button_hero":"Kəşf et"

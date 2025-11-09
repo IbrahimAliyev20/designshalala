@@ -8,7 +8,7 @@ export default async function BannerHero() {
   const t = await getTranslations("buttons");
 
   return (
-    <div className="relative w-full h-[650px] overflow-hidden">
+    <div className="relative w-full h-[250px] md:h-[650px] overflow-hidden">
       <Image
         src="/images/banner.png"
         alt="Banner"
@@ -17,9 +17,18 @@ export default async function BannerHero() {
         className="absolute inset-0 w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-black/40" />
-      <div className="absolute inset-0 z-10 flex h-full items-start pt-30 pl-10  justify-start">
-        <h1 className="  text-4xl font-medium text-[#fafdff]  md:text-8xl font-serif flex items-center gap-5 ">
-          Zərif{" "}
+
+      <div
+        className="absolute inset-0 z-10 flex h-full 
+                      items-center justify-center text-center 
+                      md:items-start md:pt-30 md:pl-10 md:justify-start md:text-left"
+      >
+        <h1
+          className="text-3xl sm:text-4xl font-medium text-[#fafdff] md:text-8xl font-serif 
+                       flex items-center text-center gap-3 
+                        md:items-center md:text-left md:gap-5"
+        >
+          Zərif
           <RotatingText
             texts={["Toxunuşlar", "Detallar", "Zövq", "Anlar!"]}
             mainClassName="px-2 sm:px-2 md:px-3 bg-[#7d6409]/60 text-white/80 overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
@@ -34,9 +43,10 @@ export default async function BannerHero() {
           />
         </h1>
       </div>
-      <div className="absolute inset-0 flex pb-35 items-end justify-center pointer-events-none">
-        <ShimmerButton className="shadow-2xl pointer-events-auto z-20">
-          <span className="text-center px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
+
+      <div className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35">
+        <ShimmerButton className="shadow-2xl pointer-events-auto z-20 w-[40%] md:w-auto">
+          <span className="text-center px-6 md:px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
             {t("button_hero")}
           </span>
         </ShimmerButton>
