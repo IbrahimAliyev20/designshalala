@@ -8,7 +8,7 @@ import { Button } from "../ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { navigationItems } from "@/utils/static";
 import Image from "next/image";
-// import { ShimmerButton } from "../ui/shimmer-button";
+import { ShimmerButton } from "../ui/shimmer-button";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
@@ -69,13 +69,13 @@ export function MobileMenu() {
 
         {/* Contact Button */}
         <div className="px-6 py-6 border-t border-white/10">
-          {/* <Link href="/contact" onClick={() => setOpen(false)}>
+          <Link href="/contact" onClick={() => setOpen(false)}>
             <ShimmerButton className="shadow-2xl pointer-events-auto z-20 w-full">
               <span className="text-center px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
                 {t("contact")}
               </span>
             </ShimmerButton>
-          </Link> */}
+          </Link>
         </div>
       </SheetContent>
     </Sheet>
