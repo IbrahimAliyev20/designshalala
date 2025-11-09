@@ -54,9 +54,9 @@ export default function BasketPage() {
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
                 <p className="text-lg text-gray-500">Səbətiniz boşdur.</p>
                 <Link href="/products" >
-                  <a className="inline-block mt-4 bg-black text-white py-3 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors cursor-pointer">
+                  <p className="inline-block mt-4 bg-black text-white py-3 px-6 rounded-full font-semibold hover:bg-gray-800 transition-colors cursor-pointer">
                     Məhsullara Bax
-                  </a>
+                  </p>
                 </Link>
               </div>
             ) : (
