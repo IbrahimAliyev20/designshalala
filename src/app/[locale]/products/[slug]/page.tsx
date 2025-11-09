@@ -6,7 +6,6 @@ import Image from "next/image";
 import { ShoppingCart, Plus, Minus, ChevronRight, Check } from "lucide-react";
 
 import products from "@/utils/product";
-import type { Product } from "@/utils/product";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import Link from "next/link";
 
@@ -71,7 +70,7 @@ export default function ProductDetailPage() {
                 key={index}
                 onClick={() => handleThumbnailClick(index)}
                 className={`aspect-square w-full overflow-hidden rounded-lg border-2 
-                            transition-all p-1 {/* DƏYİŞİKLİK: p-1 əlavə etdim */}
+                            transition-all p-1
                             ${
                               selectedImage === index
                                 ? "border-blue-600 scale-105"
