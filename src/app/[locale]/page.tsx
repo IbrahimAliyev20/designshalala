@@ -1,4 +1,5 @@
 import BannerHero from "@/components/home/BannerHero";
+import { HomeProductCarousel } from "@/components/home/HomeProductCarousel";
 import Container from "@/components/shared/container";
 
 export default function Home() {
@@ -6,9 +7,7 @@ export default function Home() {
     <div>
       <BannerHero />
        <Container>
-      <div>
-       
-      </div>
+        <HomeProductCarousel />       
 
        </Container>
     </div>
