@@ -4,6 +4,7 @@
         "description": "HR-vacancies"
     },
     "navigation": {
+        "home": "Home",
         "about": "About",
         "product": "Product",
         "contact":"Contact"

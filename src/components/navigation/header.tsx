@@ -16,7 +16,7 @@ export function Header() {
   const t = useTranslations("navigation");
   const pathname = usePathname();
   
-  const { totalItemCount } = useCart();
+  const { totalItemCount} = useCart();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full pt-6">
@@ -34,8 +34,10 @@ export function Header() {
               className="h-8 w-auto"
             />
           </Link>
-          <div className="flex items-center gap-[90px]">
-            <nav className="hidden md:flex items-center space-x-8">
+
+          <div className="flex items-center gap-6 ">
+            
+            <nav className="hidden md:flex items-center ">
               {navigationItems.map((item) => (
                 <Link
                   key={item.href}
@@ -48,22 +50,23 @@ export function Header() {
                 </Link>
               ))}
             </nav>
-          </div>
 
-          <div className="flex items-center gap-1 md:gap-6">
-            <LanguageSelector />
-            
-            <Link href="/basket" className="relative">
-              <ShoppingCart className="text-gray-300 hover:text-white transition-colors h-6 w-6" />
-              {totalItemCount > 0 && (
-                <span className="absolute -top-2 -right-3 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
-                  {totalItemCount}
-                </span>
-              )}
-            </Link>
-            
-            <MobileMenu />
+            <div className="flex items-center gap-1 md:gap-2  ">
+              <LanguageSelector />
+              
+              <Link href="/basket" className="relative">
+                <ShoppingCart className="text-gray-300 hover:text-white transition-colors h-6 w-6" />
+                { totalItemCount > 0 && (
+                  <span className="absolute -top-2 -right-3 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
+                    {totalItemCount}
+                  </span>
+                )}
+              </Link>
+              
+              <MobileMenu />
+            </div>
           </div>
+          
         </div>
       </Container>
     </header>

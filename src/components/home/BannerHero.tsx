@@ -22,7 +22,7 @@ export default async function BannerHero() {
       <div
         className="absolute inset-0 z-10 flex h-full 
                       items-center justify-center text-center 
-                      md:items-start md:pt-30 md:pl-10 md:justify-start md:text-left"
+                      md:items-start md:pt-30 md:pl-30 md:justify-start md:text-left"
       >
         <h1
           className="text-3xl sm:text-4xl font-medium text-[#fafdff] md:text-8xl font-serif 

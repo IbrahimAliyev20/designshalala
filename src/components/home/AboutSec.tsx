@@ -26,7 +26,7 @@ export function AboutSec() {
             <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">
               Bizim Fəlsəfəmiz
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-3 mb-4">
+            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mt-3 mb-2 md:mb-4">
               Hər Detalda Bir Hekayə
             </h2>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed text-center md:text-left mb-6">

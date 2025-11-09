@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import products, { ProductCategory } from "@/utils/product";
 import { CardProduct } from "../shared/CardProduct";
+import Container from "../shared/container";
 
 export function Product() {
   const categories: ProductCategory[] = ["Xonçalar", "Gül", "Şokolad"];
@@ -10,8 +11,8 @@ export function Product() {
   const allProducts = products;
 
   return (
-    <section className="py-12 md:py-24">
-      <div className="container mx-auto px-4">
+    <section className="py-12">
+      <Container >
         <Tabs defaultValue="Hamısı" className="w-full">
           <TabsList className="w-full md:w-[60%] flex justify-start items-center gap-4 md:gap-8 bg-transparent border-b border-gray-200 rounded-none p-0 h-auto mb-12 overflow-x-auto">
             <TabsTrigger
@@ -94,7 +95,7 @@ export function Product() {
             </TabsContent>
           ))}
         </Tabs>
-      </div>
+      </Container>
     </section>
   );
 }
