@@ -1,26 +1,24 @@
-"use client"; 
+"use client";
 
 import { useState } from "react";
 import { useParams, notFound } from "next/navigation";
 import Image from "next/image";
 import { ShoppingCart, Plus, Minus, ChevronRight, Check } from "lucide-react";
 
-import products from "@/utils/product"; 
-import type { Product } from "@/utils/product"; 
-import { RainbowButton } from "@/components/ui/rainbow-button"; 
+import products from "@/utils/product";
+import type { Product } from "@/utils/product";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import Link from "next/link";
 
-// DƏYİŞİKLİK: useCart hook-unu import edirik
 import { useCart } from "@/context/CartContext";
 
 export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(0); 
-  
-  const params = useParams(); 
+  const [selectedImage, setSelectedImage] = useState(0);
+
+  const params = useParams();
   const slug = params.slug;
 
-  // DƏYİŞİKLİK: Kontekstdən funksiyanı alırıq
   const { addToCart } = useCart();
 
   const product = products.find((p) => p.slug === slug);
@@ -33,14 +31,14 @@ export default function ProductDetailPage() {
     setSelectedImage(index);
   };
 
-  // DƏYİŞİKLİK: Düyməyə klik edəndə işləyəcək funksiya
   const handleAddToCart = () => {
-    addToCart(product, quantity); // Seçilmiş say qədər əlavə edir
+    addToCart(product, quantity);
   };
 
   return (
-    <div className="container mx-auto max-w-7xl p-4 py-8 md:py-12">
-      {/* ... Breadcrumbs (dəyişiklik yoxdur) ... */}
+    // Dəyişiklik: pt-20 əlavə edildi, py-8 silindi
+    <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28">
+      {/* Breadcrumbs */}
       <div className="flex items-center text-sm text-gray-500 gap-1 mb-6">
         <Link href="/" className="hover:text-gray-800">
           Ana Səhifə
@@ -53,9 +51,9 @@ export default function ProductDetailPage() {
         <span className="text-gray-800 font-medium">{product.title}</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start">
-        
-        {/* ... Şəkil Qalereyası (dəyişiklik yoxdur) ... */}
+      {/* Dəyişiklik: lg:gap-16 -> md:gap-16 */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+        {/* Şəkil Qalereyası */}
         <div className="w-full flex flex-col gap-4">
           <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm">
             <Image
@@ -67,7 +65,7 @@ export default function ProductDetailPage() {
               priority
             />
           </div>
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid grid-cols-5 gap-2 md:gap-4"> {/* Mobil gap azaldıldı */}
             {product.gallery_images.map((imgSrc, index) => (
               <button
                 key={index}
@@ -92,16 +90,18 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        {/* === Məlumat Hissəsi === */}
+        {/* Məlumat Hissəsi */}
         <div className="flex flex-col gap-4">
           <span className="text-sm font-medium text-blue-600">
             {product.category}
           </span>
-          <h1 className="text-3xl lg:text-4xl font-bold text-gray-900">
+          {/* Dəyişiklik: text-2xl md:text-4xl */}
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
             {product.title}
           </h1>
           <div className="flex items-baseline gap-3 my-2">
-            <span className="text-3xl font-bold text-gray-900">
+            {/* Dəyişiklik: text-2xl md:text-3xl */}
+            <span className="text-2xl md:text-3xl font-bold text-gray-900">
               {product.price.toFixed(2)} AZN
             </span>
           </div>
@@ -109,7 +109,7 @@ export default function ProductDetailPage() {
             {product.long_description}
           </p>
           <div className="mt-4">
-            <h3 className="text-lg font-semibold mb-3">Xüsusiyyətlər:</h3>
+            <h3 className="text-base md:text-lg font-semibold mb-3">Xüsusiyyətlər:</h3>
             <ul className="space-y-2">
               {product.specs.map((spec) => (
                 <li key={spec.key} className="flex items-center gap-2 text-sm">
@@ -122,9 +122,9 @@ export default function ProductDetailPage() {
           </div>
           <div className="my-4 border-t border-gray-200" />
 
-          {/* ... Say Seçici (dəyişiklik yoxdur) ... */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full">
-            <div className="flex items-center justify-center rounded-full border border-gray-300 p-2">
+          {/* Dəyişiklik: flex-col md:flex-row */}
+          <div className="flex flex-col md:flex-row gap-4 w-full">
+            <div className="flex items-center justify-center rounded-full border border-gray-300 p-1 md:p-2">
               <button
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 className="p-2 rounded-full text-gray-600 hover:bg-gray-100 transition-colors disabled:opacity-50"
@@ -142,11 +142,10 @@ export default function ProductDetailPage() {
                 <Plus size={18} />
               </button>
             </div>
-            
-            {/* DƏYİŞİKLİK: Düyməyə onClick funksiyası əlavə etdik */}
+
             <RainbowButton
               variant="default"
-              className="flex-1 w-full text-lg py-6"
+              className="flex-1 w-full text-base md:text-lg py-5 md:py-6"
               onClick={handleAddToCart}
             >
               <ShoppingCart size={20} className="mr-2" />
