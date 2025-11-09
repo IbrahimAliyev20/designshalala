@@ -3,7 +3,8 @@ import React from "react";
 
 function ProductsListingPage() {
   return (
-    <div className="pt-20"> 
+    <div className="pt-20 ">
+  
       <Product />
     </div>
   );
