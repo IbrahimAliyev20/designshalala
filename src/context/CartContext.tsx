@@ -7,15 +7,13 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { Product } from "@/utils/product"; // Sizin product tipiniz
-import { toast } from "sonner"; // Gözəl bildirişlər üçün
+import { Product } from "@/utils/product"; 
+import { toast } from "sonner"; 
 
-// Səbət məhsulunun tipini təyin edirik
 export type CartItem = Product & {
   quantity: number;
 };
 
-// Kontekstin nə təqdim edəcəyini təyin edirik
 interface CartContextType {
   cartItems: CartItem[];
   addToCart: (product: Product, quantity: number) => void;
@@ -24,50 +22,54 @@ interface CartContextType {
   totalItemCount: number;
 }
 
-// Konteksti yaradırıq
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Kontekst Provider (Təminatçı) komponenti
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  
+  // DƏYİŞİKLİK 1: Cihazın "client" olduğunu təsdiqləmək üçün state
+  const [isClient, setIsClient] = useState(false);
+
+  // DƏYİŞİKLİK 2: Səhifənin artıq client-də olduğuna əmin oluruq
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Səhifə yüklənəndə datanı localStorage-dan oxu
   useEffect(() => {
-    const storedCart = localStorage.getItem("shalala_cart");
-    if (storedCart) {
-      setCartItems(JSON.parse(storedCart));
+    // DƏYİŞİKLİK 3: YALNIZ client-də olduğumuza əmin olduqdan sonra localStorage-ı oxuyuruq
+    if (isClient) {
+      const storedCart = localStorage.getItem("shalala_cart");
+      if (storedCart) {
+        setCartItems(JSON.parse(storedCart));
+      }
     }
-  }, []);
+  }, [isClient]); // Artıq [isClient]-dən asılıdır
 
   // Səbət dəyişəndə datanı localStorage-a yaz
   useEffect(() => {
-    // Yalnız "mount" (ilk yüklənmə) bitdikdən sonra localStorage-a yaz
-    // Bu, həm də ilkin yükləmədəki "hydration mismatch" problemini həll edir
-    if (cartItems.length > 0 || localStorage.getItem("shalala_cart")) {
-       localStorage.setItem("shalala_cart", JSON.stringify(cartItems));
+    // DƏYİŞİKLİK 3: YALNIZ client-də olduğumuza əmin olduqdan sonra localStorage-a yazırıq
+    if (isClient) {
+      localStorage.setItem("shalala_cart", JSON.stringify(cartItems));
     }
-  }, [cartItems]);
+  }, [cartItems, isClient]); // isClient-dən asılıdır
 
-  // Səbətə məhsul əlavə etmə funksiyası (DÜZƏLDİLMİŞ)
+  // Səbətə məhsul əlavə etmə funksiyası
   const addToCart = (product: Product, quantity: number) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.id === product.id);
 
       if (existingItem) {
-        // Əgər məhsul artıq səbətdə varsa, sayını artır
         return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        // Əgər yoxdursa, yeni məhsul kimi əlavə et
         return [...prevItems, { ...product, quantity }];
       }
     });
 
-    // DƏYİŞİKLİK: Toast bildirişi state yeniləməsindən
-    // KƏNARDA, 1 dəfə çağırılır.
     toast.success(`"${product.title}" səbətə əlavə olundu`);
   };
 
@@ -87,7 +89,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  // Məhsul sayını dəyişmə funksiyası (məsələn: +1 və ya -1)
+  // Məhsul sayını dəyişmə funksiyası
   const updateQuantity = (productId: number, change: number) => {
     setCartItems((prevItems) =>
       prevItems
@@ -96,7 +98,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             ? { ...item, quantity: Math.max(1, item.quantity + change) }
             : item
         )
-        .filter((item) => item.quantity > 0) // Sayı 0-a düşərsə sil
+        .filter((item) => item.quantity > 0)
     );
   };
 
@@ -121,6 +123,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+// Konteksti asan istifadə etmək üçün xüsusi hook
 export const useCart = () => {
   const context = useContext(CartContext);
   if (context === undefined) {
