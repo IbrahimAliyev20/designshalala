@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Product } from "@/utils/product";
-import { ShoppingCart } from "lucide-react"; 
-import { RainbowButton } from "../ui/rainbow-button";
+import { ShoppingCart, Heart } from "lucide-react"; // DƏYİŞİKLİK
+import { Button } from "@/components/ui/button"; // DƏYİŞİKLİK
+// import { RainbowButton } from "../ui/rainbow-button"; // DƏYİŞİKLİK: Silindi
 
 import { useCart } from "@/context/CartContext";
 
@@ -23,18 +24,24 @@ export function CardProduct({ product }: CardProductProps) {
   };
 
   return (
-    <Card className="rounded-xl  overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
+    <Card className="rounded-xl overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
       <div className="relative w-full overflow-hidden h-[200px] md:h-[250px]">
-    
+        {/* DƏYİŞİKLİK: Itmiş Heart düyməsi geri gəldi */}
+        <Button
+          size="icon"
+          variant="ghost"
+          className="absolute top-2 right-2 md:top-4 md:right-4 z-10 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/30 border border-white/40 transition-all w-8 h-8 md:w-auto md:h-auto"
+        >
+          <Heart className="w-4 h-4 md:w-5 md:h-5 text-white" />
+        </Button>
 
         <Link href={`/products/${product.slug}`} className="h-full">
-          <div className="relative w-full h-full flex items-center justify-center p-4"> {/* DƏYİŞİKLİK: Şəkilə p-4 (padding) əlavə etdim */}
+          <div className="relative w-full h-full flex items-center justify-center p-4">
             <Image
               src={product.main_image}
               alt={product.title}
               width={600}
               height={500}
-              // DƏYİŞİKLİK: object-cover -> object-contain
               className="object-contain relative w-full h-full"
             />
             <div className="absolute top-3 left-3 md:top-5 md:left-3 flex gap-2 mb-2">
@@ -46,7 +53,7 @@ export function CardProduct({ product }: CardProductProps) {
         </Link>
       </div>
 
-      <div className="pt-2 p-3 flex flex-col flex-1 ">
+      <div className="pt-2 p-3 flex flex-col flex-1">
         <Link href={`/products/${product.slug}`}>
           <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-1 md:mb-2 hover:text-gray-700 transition-colors line-clamp-1">
             {product.title}
@@ -66,14 +73,15 @@ export function CardProduct({ product }: CardProductProps) {
             </p>
           </div>
 
-          <RainbowButton
+          {/* DƏYİŞİKLİK: RainbowButton -> standart Button */}
+          <Button
             variant="default"
-            className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto" 
+            className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto"
             onClick={handleAddToCart}
           >
             <ShoppingCart className="w-5 h-5 md:hidden" />
             <span className="hidden md:block">Səbətə at</span>
-          </RainbowButton>
+          </Button>
         </div>
       </div>
     </Card>

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import RotatingText from "../RotatingText";
-import { ShimmerButton } from "../ui/shimmer-button";
+import { Button } from "@/components/ui/button"; // DƏYİŞİKLİK
 import Link from "next/link";
 
 export default async function BannerHero() {
@@ -21,13 +21,13 @@ export default async function BannerHero() {
 
       <div
         className="absolute inset-0 z-10 flex h-full 
-                      items-center justify-center text-center 
-                      md:items-start md:pt-30 md:pl-10 md:justify-start md:text-left"
+                       items-center justify-center text-center 
+                       md:items-start md:pt-30 md:pl-10 md:justify-start md:text-left"
       >
         <h1
           className="text-3xl sm:text-4xl font-medium text-[#fafdff] md:text-8xl font-serif 
                        flex items-center text-center gap-3 
-                        md:items-center md:text-left md:gap-5"
+                       md:items-center md:text-left md:gap-5"
         >
           Zərif
           <RotatingText
@@ -45,12 +45,20 @@ export default async function BannerHero() {
         </h1>
       </div>
 
-      <Link href="/products" className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35">
-        <ShimmerButton className="shadow-2xl pointer-events-auto z-20 w-[40%] md:w-auto">
-          <span className="text-center px-6 md:px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap text-white lg:text-xl dark:from-white dark:to-slate-900/10">
+      {/* DƏYİŞİKLİK: 'div' Link ilə əvəz edildi və ShimmerButton -> Button oldu */}
+      <Link 
+        href="/products" 
+        className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35"
+      >
+        <Button 
+          className="shadow-2xl pointer-events-auto z-20 w-[40%] md:w-auto 
+                     bg-gray-800/70 hover:bg-gray-700/90 text-white backdrop-blur-md" 
+          size="lg"
+        >
+          <span className="text-center px-6 md:px-10 text-sm leading-none font-medium tracking-tight whitespace-pre-wrap lg:text-xl">
             {t("button_hero")}
           </span>
-        </ShimmerButton>
+        </Button>
       </Link>
     </div>
   );

@@ -16,7 +16,6 @@ export function Product() {
           <TabsList className="w-full md:w-[60%] flex justify-start items-center gap-4 md:gap-8 bg-transparent border-b border-gray-200 rounded-none p-0 h-auto mb-12 overflow-x-auto">
             <TabsTrigger
               value="Hamısı"
-              // DƏYİŞİKLİK: 'bg-none' -> 'bg-transparent' və 'data-[state=active]:bg-transparent' əlavə edildi
               className="group bg-transparent rounded-none border-b-2 border-transparent pb-4 px-2
                                text-sm md:text-base font-medium text-gray-500 
                                data-[state=active]:text-gray-900 data-[state=active]:border-b-blue-600 
@@ -48,7 +47,6 @@ export function Product() {
                 <TabsTrigger
                   key={category}
                   value={category}
-                  // DƏYİŞİKLİK: 'data-[state=active]:bg-transparent' əlavə edildi
                   className="group bg-transparent rounded-none border-b-2 border-transparent pb-4 px-2
                                    text-sm md:text-base font-medium text-gray-500 
                                    data-[state=active]:text-gray-900 data-[state=active]:border-b-blue-600 
@@ -75,6 +73,7 @@ export function Product() {
           </TabsList>
 
           <TabsContent value="Hamısı" className="mt-0">
+            {/* DƏYİŞİKLİK: grid-cols-1 (mobil) */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
               {allProducts.map((product) => (
                 <CardProduct key={product.id} product={product} />
@@ -84,6 +83,7 @@ export function Product() {
 
           {categories.map((category) => (
             <TabsContent key={category} value={category} className="mt-0">
+              {/* DƏYİŞİKLİK: grid-cols-1 (mobil) */}
               <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
                 {products
                   .filter((p) => p.category === category)

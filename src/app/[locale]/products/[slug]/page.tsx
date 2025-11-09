@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ShoppingCart, Plus, Minus, ChevronRight, Check } from "lucide-react";
 
 import products from "@/utils/product";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Button } from "@/components/ui/button"; // DƏYİŞİKLİK
 import Link from "next/link";
 
 import { useCart } from "@/context/CartContext";
@@ -35,9 +35,8 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28 ">
-      {/* Breadcrumbs */}
-      <div className="flex items-center text-sm text-gray-500 gap-1 mb-6 ">
+    <div className="container mx-auto max-w-7xl p-4 pt-20 md:pt-28">
+      <div className="flex items-center text-sm text-gray-500 gap-1 mb-6">
         <Link href="/" className="hover:text-gray-800">
           Ana Səhifə
         </Link>
@@ -49,17 +48,15 @@ export default function ProductDetailPage() {
         <span className="text-gray-800 font-medium">{product.title}</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-start">
         
-        {/* Şəkil Qalereyası */}
-        <div className="w-full flex flex-col gap-4   rounded-xl ">
-          <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm p-4"> {/* DƏYİŞİKLİK: p-4 əlavə etdim */}
+        <div className="w-full flex flex-col gap-4 rounded-xl">
+          <div className="aspect-square w-full overflow-hidden rounded-xl border shadow-sm p-4">
             <Image
               src={product.gallery_images[selectedImage]}
               alt={product.title}
               width={800}
               height={800}
-              // DƏYİŞİKLİK: object-cover -> object-contain
               className="w-full h-full object-contain transition-opacity duration-300"
               priority
             />
@@ -82,7 +79,6 @@ export default function ProductDetailPage() {
                   alt={`${product.title} qalereya ${index + 1}`}
                   width={150}
                   height={150}
-                  // DƏYİŞİKLİK: object-cover -> object-contain
                   className="w-full h-full object-contain"
                 />
               </button>
@@ -90,8 +86,8 @@ export default function ProductDetailPage() {
           </div>
         </div>
 
-        {/* Məlumat Hissəsi (responsiv kodlar qorunub) */}
-        <div className="flex flex-col gap-4 bg-green-100/40 h-full justify-between p-6 rounded-xl ">
+        {/* DƏYİŞİKLİK: 'justify-between' silindi, h-full silindi, bg-green silindi */}
+        <div className="flex flex-col gap-4 p-0 md:p-6 rounded-xl">
           <span className="text-sm font-medium text-blue-600">
             {product.category}
           </span>
@@ -120,6 +116,7 @@ export default function ProductDetailPage() {
           </div>
           <div className="my-4 border-t border-gray-200" />
 
+          {/* DƏYİŞİKLİK: Mobil üçün flex-col */}
           <div className="flex flex-col md:flex-row gap-4 w-full">
             <div className="flex items-center justify-center rounded-full border border-gray-300 p-1 md:p-2">
               <button
@@ -140,14 +137,15 @@ export default function ProductDetailPage() {
               </button>
             </div>
 
-            <RainbowButton
+            {/* DƏYİŞİKLİK: RainbowButton -> standart Button */}
+            <Button
               variant="default"
               className="flex-1 w-full text-base md:text-lg py-5 md:py-6"
               onClick={handleAddToCart}
             >
               <ShoppingCart size={20} className="mr-2" />
               Səbətə Əlavə Et
-            </RainbowButton>
+            </Button>
           </div>
         </div>
       </div>
