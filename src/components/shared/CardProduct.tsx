@@ -2,16 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
-import { Product } from "@/utils/product";
-import { ShoppingCart } from "lucide-react"; 
-import { RainbowButton } from "../ui/rainbow-button";
+import { Product } from "@/utils/product"; // Sizin Product tipiniz
+import { useCart } from "@/context/CartContext"; // Sizin Cart context-iniz
 
-import { useCart } from "@/context/CartContext";
+import {
+  CardFlip,
+  CardFlipFront,
+  CardFlipBack,
+  CardFlipHeader,
+  CardFlipFooter,
+  CardFlipTitle,
+  CardFlipDescription,
+  CardFlipContent,
+} from "@/components/ui/card-flip";
+import { Box, ShoppingCart } from "lucide-react";
 
 type CardProductProps = {
   product: Product;
 };
+
+
 
 export function CardProduct({ product }: CardProductProps) {
   const { addToCart } = useCart();
@@ -23,58 +33,90 @@ export function CardProduct({ product }: CardProductProps) {
   };
 
   return (
-    <Card className="rounded-xl  overflow-hidden group relative h-full flex flex-col gap-0 p-0 shadow-none">
-      <div className="relative w-full overflow-hidden h-[200px] md:h-[250px]">
-    
-
-        <Link href={`/products/${product.slug}`} className="h-full">
-          <div className="relative w-full h-full flex items-center justify-center p-4"> {/* DƏYİŞİKLİK: Şəkilə p-4 (padding) əlavə etdim */}
+    <CardFlip className="w-full max-w-sm select-none h-full">
+      <CardFlipFront className="flex flex-col justify-between h-auto">
+        <div className="mx-4 mt-4 h-48 w-[calc(100%-2rem)] rounded-lg overflow-hidden">
+          <Link href={`/products/${product.slug}`} className="relative w-full h-full block">
             <Image
               src={product.main_image}
               alt={product.title}
-              width={600}
-              height={500}
-              className="object-contain relative w-full h-full"
+              fill
+              className="w-full h-full object-cover"
             />
-            <div className="absolute top-3 left-3 md:top-5 md:left-3 flex gap-2 mb-2">
-              <span className="border-2 border-gray-300 rounded-md px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm font-medium text-gray-700 bg-white/80 backdrop-blur-sm">
-                {product.category}
-              </span>
-            </div>
-          </div>
-        </Link>
-      </div>
-
-      <div className="pt-2 p-3 flex flex-col flex-1 ">
-        <Link href={`/products/${product.slug}`}>
-          <h3 className="text-base md:text-xl font-semibold text-gray-900 mb-1 md:mb-2 hover:text-gray-700 transition-colors line-clamp-1">
-            {product.title}
-          </h3>
-        </Link>
-
-        <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-4 md:mb-6 line-clamp-2">
-          {product.short_description}
-        </p>
-
-        <div className="flex-1" />
-        <div className="flex justify-between items-center mt-auto">
-          <div>
-            <p className="text-xs text-gray-500 font-semibold mb-0 md:mb-1">Qiymət</p>
-            <p className="text-lg md:text-2xl font-semibold text-gray-900">
-              {product.price} AZN
-            </p>
-          </div>
-
-          <RainbowButton
-            variant="default"
-            className="pointer-events-auto z-20 md:w-auto w-10 h-10 p-0 md:px-4 md:py-2 md:h-auto" 
-            onClick={handleAddToCart}
-          >
-            <ShoppingCart className="w-5 h-5 md:hidden" />
-            <span className="hidden md:block">Səbətə at</span>
-          </RainbowButton>
+          </Link>
         </div>
-      </div>
-    </Card>
+
+        <div className=" flex items-center justify-between px-4 ">
+          {/* DƏYİŞİKLİK: 'primary' teq rəngi qızılı/qəhvəyi ilə əvəz edildi */}
+          <span className="bg-[#D4A85F]/20 text-[rgb(58,42,31)] text-xs font-semibold px-2 py-1 rounded-full">
+            {product.category}
+          </span>
+        </div>
+
+        <CardFlipHeader>
+          {/* DƏYİŞİKLİK: Başlıq rəngi brendə uyğunlaşdırıldı */}
+          <CardFlipTitle className="text-[rgb(58,42,31)]">{product.title}</CardFlipTitle>
+          {/* DƏYİŞİKLİK: Qiymət rəngi brendə uyğunlaşdırıldı */}
+          <p className="text-2xl font-bold text-[rgb(58,42,31)]">{product.price} AZN</p>
+        </CardFlipHeader>
+
+        <CardFlipContent className="flex-1 overflow-auto">
+          {/* DƏYİŞİKLİK: Mətn rəngi 'muted-foreground' əvəzinə daha isti 'stone-600' oldu */}
+          <p className="text-sm text-stone-600 line-clamp-2">
+            {product.short_description}
+          </p>
+        </CardFlipContent>
+
+        <CardFlipFooter className="flex gap-4 items-stretch">
+          {/* DƏYİŞİKLİK: 'primary' düymə rəngi brendin qəhvəyi/krem rəngləri ilə əvəz edildi */}
+          <Link
+            href={`/products/${product.slug}`}
+            className="flex-1 bg-[rgb(58,42,31)] py-1 text-[#F3E8D2] px-4 rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center"
+          >
+            Ətraflı
+          </Link>
+          {/* DƏYİŞİKLİK: 'primary' düymə rəngi brendin qəhvəyi/krem rəngləri ilə əvəz edildi */}
+          <button
+            onClick={handleAddToCart}
+            aria-label="Səbətə at"
+            className="w-12 bg-[rgb(58,42,31)] py-1 text-[#F3E8D2] rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center"
+          >
+            <ShoppingCart className="w-5 h-5" />
+          </button>
+        </CardFlipFooter>
+      </CardFlipFront>
+
+      <CardFlipBack className="h-full flex flex-col">
+        <CardFlipHeader>
+          {/* DƏYİŞİKLİK: Arxa tərəfin rəngləri */}
+          <CardFlipTitle className="text-[rgb(58,42,31)]">{product.title}</CardFlipTitle>
+          <CardFlipDescription className="text-stone-600">{product.short_description}</CardFlipDescription>
+        </CardFlipHeader>
+
+        <CardFlipContent className="flex-1 overflow-auto space-y-4">
+          {product.specs && product.specs.length > 0 ? (
+            product.specs.map((spec) => (
+              <div className="flex items-start gap-3" key={spec.key}>
+                {/* DƏYİŞİKLİK: İkon rəngi 'primary' əvəzinə brendin qızılı vurğu rəngi oldu */}
+                <Box className="text-[#D4A85F] w-6 h-6 mt-1 flex-shrink-0" />
+                <div>
+                  {/* DƏYİŞİKLİK: Arxa tərəfin rəngləri */}
+                  <h4 className="font-semibold text-[rgb(58,42,31)]">{spec.key}</h4>
+                  <p className="text-sm text-stone-600">{spec.value}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="text-sm text-stone-600 px-4">
+              Bu məhsul üçün əlavə xüsusiyyət yoxdur.
+            </p>
+          )}
+        </CardFlipContent>
+        
+        <CardFlipFooter className="border-t">
+          <p className="text-xs mt-4 text-stone-600">Xüsusi günləriniz üçün</p>
+        </CardFlipFooter>
+      </CardFlipBack>
+    </CardFlip>
   );
-}
+} 

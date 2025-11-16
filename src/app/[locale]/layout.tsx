@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { QueryProvider } from "@/providers/QueryProvider";
 import { Toaster } from "sonner";
 
 import { Header } from "@/components/navigation/header";
@@ -45,10 +44,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryProvider>
           <NextIntlClientProvider messages={messages}>
             <CartProvider>
-              <div className="bg-red-100/20">
+              <div>
                 <Header />
                 {children}
                 <Footer />
@@ -56,7 +54,6 @@ export default async function RootLayout({
               <Toaster position="top-center" richColors closeButton />
             </CartProvider>
           </NextIntlClientProvider>
-        </QueryProvider>
       </body>
     </html>
   );

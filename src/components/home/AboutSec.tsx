@@ -3,15 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { RainbowButton } from "../ui/rainbow-button"; // Sizin xüsusi düyməniz
+import { ShimmerButton } from "../ui/shimmer-button";
 
 export function AboutSec() {
   return (
     <section className="py-16 md:py-24">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-          {/* Sol Tərəf: Şəkil */}
-          {/* DƏYİŞİKLİK: Mobil hündürlüyü (h-[300px]) və Desktop (md:h-[450px]) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center ">
           <div className="w-full h-[300px] md:h-[450px] relative rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/bgaboutsec.jpg"
@@ -22,27 +20,35 @@ export function AboutSec() {
             />
           </div>
 
-          <div className="flex flex-col items-center md:items-start">
-            <span className="text-sm font-semibold text-blue-600 uppercase tracking-wider">
+          <div className="flex flex-col h-full justify-between items-center md:items-start">
+            <span className="text-sm font-semibold text-[#725d39b5] uppercase tracking-wider">
               Bizim Fəlsəfəmiz
             </span>
-            <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mt-3 mb-2 md:mb-4">
+       <div className="flex flex-col gap-4 text-center">
+             <h2 className="text-2xl md:text-4xl font-bold text-stone-700 mt-3 mb-2 md:mb-4">
               Hər Detalda Bir Hekayə
             </h2>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed text-center md:text-left mb-6">
+            <p className="text-base md:text-lg text-stone-500 leading-relaxed text-center  mb-6">
               Biz inanırıq ki, ən gözəl hədiyyələr sevgi ilə hazırlananlardır.
               Hər bir kompozisiya, xonça və buket, sizin ən xüsusi anlarınızı
               unudulmaz etmək üçün zərifliklə, əl ilə hazırlanır.
             </p>
-            <RainbowButton asChild>
+       </div>
+            <div className="w-full flex justify-end">
               <Link
-                href="/about"
-                className="flex items-center gap-2 text-sm md:text-base px-6 py-5"
+              href="/about"
+              className="flex items-center gap-2 text-sm md:text-base py-5"
+            >
+              <ShimmerButton
+                background="rgba(58,42,31,0.85)"
+                shimmerColor="#D4A85F"
+                borderRadius="10px"
               >
                 Haqqımızda Daha Ətraflı
                 <ArrowRight className="w-4 h-4" />
-              </Link>
-            </RainbowButton>
+              </ShimmerButton>
+            </Link>
+            </div>
           </div>
         </div>
       </div>

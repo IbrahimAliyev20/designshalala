@@ -16,15 +16,24 @@ export function Header() {
   const t = useTranslations("navigation");
   const pathname = usePathname();
   
-  const { totalItemCount} = useCart();
+  const { totalItemCount } = useCart();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full pt-6">
       <Container>
+        
         <div
-          className="flex items-center justify-between rounded-full
-                     border border-white/10 bg-[linear-gradient(to_right,#2c536480,#203a4380,#0f202780)] px-4 md:px-8 py-1 md:py-3 shadow-lg backdrop-blur-xl"
+          className="
+            flex items-center justify-between rounded-full
+            border border-[rgba(212,168,95,0.25)]
+            bg-[rgba(58,42,31,0.55)]
+            px-4 md:px-8 py-1 md:py-3 
+            shadow-[0_4px_25px_rgba(0,0,0,0.25)]
+            backdrop-blur-xl
+          "
         >
+          
+          {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
               src="/images/logo.jpg"
@@ -35,39 +44,52 @@ export function Header() {
             />
           </Link>
 
-          <div className="flex items-center gap-6 ">
+          <div className="flex items-center gap-6">
             
-            <nav className="hidden md:flex items-center ">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center">
               {navigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`font-medium text-gray-300 navA hover:text-white transition-colors py-2 px-4 ${
-                    pathname === item.href ? "text-white font-semibold" : ""
-                  }`}
+                  className={`
+                    font-medium text-[#F3E8D2] px-4 py-2 navA
+                    hover:text-[#D4A85F] transition-colors
+                    ${pathname === item.href ? "text-[#D4A85F] font-semibold" : ""}
+                  `}
                 >
                   {t(item.label)}
                 </Link>
               ))}
             </nav>
 
-            <div className="flex items-center gap-1 md:gap-2  ">
-              <LanguageSelector />
+            <div className="flex items-center gap-1 md:gap-2">
               
+              {/* Language */}
+              <LanguageSelector />
+
+              {/* Cart Icon */}
               <Link href="/basket" className="relative">
-                <ShoppingCart className="text-gray-300 hover:text-white transition-colors h-6 w-6" />
-                { totalItemCount > 0 && (
-                  <span className="absolute -top-2 -right-3 flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-xs font-bold text-white">
+                <ShoppingCart className="text-[#F3E8D2] hover:text-[#D4A85F] transition-colors h-6 w-6" />
+                
+                {totalItemCount > 0 && (
+                  <span className="
+                    absolute -top-2 -right-3 flex h-5 w-5 items-center justify-center 
+                    rounded-full bg-red-600 text-xs font-bold text-white
+                  ">
                     {totalItemCount}
                   </span>
                 )}
               </Link>
-              
+
+              {/* Mobile Menu */}
               <MobileMenu />
             </div>
+
           </div>
-          
+
         </div>
+
       </Container>
     </header>
   );

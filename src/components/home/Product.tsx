@@ -7,39 +7,49 @@ import Container from "../shared/container";
 
 export function Product() {
   const categories: ProductCategory[] = ["Xonçalar", "Gül", "Şokolad"];
-
   const allProducts = products;
+
+  // --- Brend Palitrası (Referans üçün) ---
+  // Tünd Qəhvəyi: rgb(58, 42, 31)
+  // Krem: #F3E8D2
+  // Qızılı: #D4A85F
+  // İsti Boz (Mətn): text-stone-700
+  // İsti Açıq Boz (Mətn): text-stone-500
+  // ----------------------------------------
 
   return (
     <section className="py-12">
-      <Container >
+      <Container>
         <Tabs defaultValue="Hamısı" className="w-full">
-          <TabsList className="w-full md:w-[60%] flex justify-start items-center gap-4 md:gap-8 bg-transparent border-b border-gray-200 rounded-none p-0 h-auto mb-12 overflow-x-auto">
+          {/* DƏYİŞİKLİK: 'border-gray-200' -> 'border-stone-200' (daha isti) */}
+          <TabsList className="w-full md:w-[60%] flex justify-start items-center gap-4 md:gap-8 bg-transparent border-b border-stone-200 rounded-none p-0 h-auto mb-12 overflow-x-auto">
+            
+            {/* === "HAMISI" TABI === */}
             <TabsTrigger
               value="Hamısı"
-              // DƏYİŞİKLİK: 'bg-none' -> 'bg-transparent' və 'data-[state=active]:bg-transparent' əlavə edildi
               className="group bg-transparent rounded-none border-b-2 border-transparent pb-4 px-2
-                               text-sm md:text-base font-medium text-gray-500 
-                               data-[state=active]:text-gray-900 data-[state=active]:border-b-blue-600 
-                               data-[state=active]:shadow-none data-[state=active]:bg-transparent
-                               hover:text-gray-900 transition-colors duration-200 whitespace-nowrap"
+                         text-sm md:text-base font-medium text-stone-500 
+                         data-[state=active]:text-[rgb(58,42,31)] data-[state=active]:border-b-[rgb(58,42,31)] 
+                         data-[state=active]:shadow-none data-[state=active]:bg-transparent
+                         hover:text-[rgb(58,42,31)] transition-colors duration-200 whitespace-nowrap"
             >
               <span className="flex items-center gap-2">
                 Hamısı
                 <span
                   className="items-center justify-center min-w-[20px] h-5 px-1.5 
-                               text-xs font-semibold rounded
-                               bg-gray-200 text-gray-700 
-                               hidden 
-                               group-data-[state=active]:bg-blue-600 
-                               group-data-[state=active]:text-white
-                               group-data-[state=active]:inline-flex"
+                             text-xs font-semibold rounded
+                             bg-[#D4A85F]/20 text-[rgb(58,42,31)] 
+                             hidden 
+                             group-data-[state=active]:bg-[rgb(58,42,31)] 
+                             group-data-[state=active]:text-[#F3E8D2]
+                             group-data-[state=active]:inline-flex"
                 >
                   {allProducts.length}
                 </span>
               </span>
             </TabsTrigger>
 
+            {/* === KATEQORİYA TABLARI === */}
             {categories.map((category) => {
               const categoryCount = products.filter(
                 (p) => p.category === category
@@ -49,23 +59,23 @@ export function Product() {
                 <TabsTrigger
                   key={category}
                   value={category}
-                  // DƏYİŞİKLİK: 'data-[state=active]:bg-transparent' əlavə edildi
+                  // DƏYİŞİKLİK: Bütün rənglər brendə uyğunlaşdırıldı (mavi və qara yığışdırıldı)
                   className="group bg-transparent rounded-none border-b-2 border-transparent pb-4 px-2
-                                   text-sm md:text-base font-medium text-gray-500 
-                                   data-[state=active]:text-gray-900 data-[state=active]:border-b-blue-600 
-                                   data-[state=active]:shadow-none data-[state=active]:bg-transparent
-                                   hover:text-gray-900 transition-colors duration-200 whitespace-nowrap"
+                                     text-sm md:text-base font-medium text-stone-500 
+                                     data-[state=active]:text-[rgb(58,42,31)] data-[state=active]:border-b-[rgb(58,42,31)] 
+                                     data-[state=active]:shadow-none data-[state=active]:bg-transparent
+                                     hover:text-[rgb(58,42,31)] transition-colors duration-200 whitespace-nowrap"
                 >
                   <span className="flex items-center gap-2">
                     {category}
                     <span
                       className="items-center justify-center min-w-[20px] h-5 px-1.5 
-                                   text-xs font-semibold rounded
-                                   bg-gray-200 text-gray-700 
-                                   hidden 
-                                   group-data-[state=active]:bg-blue-600 
-                                   group-data-[state=active]:text-white
-                                   group-data-[state=active]:inline-flex"
+                                 text-xs font-semibold rounded
+                                 bg-[#D4A85F]/20 text-[rgb(58,42,31)] 
+                                 hidden 
+                                 group-data-[state=active]:bg-[rgb(58,42,31)] 
+                                 group-data-[state=active]:text-[#F3E8D2]
+                                 group-data-[state=active]:inline-flex"
                     >
                       {categoryCount}
                     </span>
@@ -75,6 +85,7 @@ export function Product() {
             })}
           </TabsList>
 
+          {/* Məzmun (Bura dəyməyə ehtiyac yoxdur, çünki 'CardProduct' onsuz da düzəldilib) */}
           <TabsContent value="Hamısı" className="mt-0">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
               {allProducts.map((product) => (
