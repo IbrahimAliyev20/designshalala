@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import LanguageSelector from "../shared/language-selector";
 import { navigationItems } from "@/utils/static";
 import Container from "../shared/container";
@@ -9,7 +8,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { MobileMenu } from "./mobilmenu"; 
 import { ShoppingCart } from "lucide-react";
-
+import { Link } from "@/i18n/navigation";
 import { useCart } from "@/context/CartContext";
 
 export function Header() {

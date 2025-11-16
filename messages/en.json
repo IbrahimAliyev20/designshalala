@@ -1,15 +1,127 @@
 {
-    "home": {
-        "title": "HR-vacancies",
-        "description": "HR-vacancies"
+  "home": {
+    "title": "Designed Shalala - Delicate Touches",
+    "description": "Baskets, Flowers and Chocolate compositions"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "product": "Products",
+    "contact": "Contact"
+  },
+  "buttons": {
+    "button_hero": "Discover",
+    "discover": "Discover",
+    "add_to_cart": "Add to Cart",
+    "view_details": "Details",
+    "checkout": "Proceed to Checkout",
+    "contact_now": "Contact Now",
+    "start_chat": "Start Chat",
+    "follow_us": "Follow Us",
+    "learn_more": "Learn More"
+  },
+  "hero": {
+    "title": "Delicate",
+    "rotating_texts": ["Touches", "Details", "Taste", "Moments!"]
+  },
+  "about": {
+    "hero_title": "We Make Every Moment Special",
+    "hero_subtitle": "Delicate touches, handcrafted designs and unforgettable moments.",
+    "story_title": "More Than Just a Gift",
+    "story_p1": "Designed Shalala is not just a store selling standard products. This is a workshop where craftsmanship and elegance are engraved in every detail.",
+    "story_p2": "For us, every basket is not just an item; it is part of the attention shown to your special day. Every flower bouquet represents your emotions, and every chocolate box represents your sweetest moments.",
+    "story_p3": "Because we believe that the most beautiful gifts are created with special attention and sensitivity.",
+    "process_title": "The Path to Elegance",
+    "process_step1_title": "Personalized Design",
+    "process_step1_desc": "We listen to your dreams and create a special design concept for every detail.",
+    "process_step2_title": "Preparation with Love",
+    "process_step2_desc": "Every composition is prepared by hand with high-quality materials, attention and love.",
+    "process_step3_title": "Elegant Presentation",
+    "process_step3_desc": "Your order is presented to you exactly as you dreamed, down to the smallest detail.",
+    "cta_title": "Let's Plan Your Special Day Together",
+    "cta_text": "Whether it's a basket, flowers or a special gift, you can trust us.",
+    "philosophy_label": "Our Philosophy",
+    "philosophy_title": "A Story in Every Detail",
+    "philosophy_desc": "We believe that the most beautiful gifts are created with love. Every composition, basket and bouquet is carefully and handcrafted with elegance to make your most special moments unforgettable."
+  },
+  "products": {
+    "hero_title": "For Your Special Day",
+    "hero_subtitle": "The most unique choices for engagement, wedding or a delicate gift are here.",
+    "all": "All",
+    "categories": {
+      "xoncalar": "Baskets",
+      "gul": "Flowers",
+      "sokolad": "Chocolate"
     },
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "product": "Product",
-        "contact":"Contact"
-    },
-    "buttons":{
-        "button_hero":"Discover"
-    }
+    "specs_title": "Features:",
+    "no_specs": "No additional features for this product.",
+    "for_special_days": "For your special days",
+    "breadcrumb_home": "Home",
+    "breadcrumb_products": "Products"
+  },
+  "product_detail": {
+    "add_to_cart": "Add to Cart",
+    "specs_title": "Features:"
+  },
+  "basket": {
+    "title": "YOUR CART",
+    "empty": "Your cart is empty.",
+    "view_products": "View Products",
+    "category": "Category:",
+    "remove": "Remove product",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "order_summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "total": "Total Amount",
+    "checkout": "Proceed to Checkout",
+    "checkout_message": "Hello! I would like to order:\n\nMy Orders:\n--------------------------",
+    "checkout_item": "Product:",
+    "checkout_quantity": "Quantity:",
+    "checkout_price": "Price:",
+    "checkout_total": "*Total Amount:",
+    "currency": "AZN"
+  },
+  "contact": {
+    "hero_title": "Contact Us",
+    "hero_subtitle": "We are here to bring your dream design to life.",
+    "title": "Have Questions?",
+    "whatsapp_title": "Order via WhatsApp",
+    "whatsapp_desc": "Write to us directly for custom designs, baskets and gifts.",
+    "instagram_title": "Follow Us on Instagram",
+    "instagram_desc": "To see our latest work, get inspiration or write to us via DM.",
+    "whatsapp_message": "Hello! I have a question about a special order."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most frequently asked questions about orders, delivery and our products.",
+    "q1": "How can I place an order?",
+    "a1": "Placing an order is very easy! Add the product you like to the cart and click the 'Proceed to Checkout' button on the cart page to contact us directly via WhatsApp.",
+    "q2": "Are the products handmade?",
+    "a2": "Yes, every composition at 'Designed Shalala' - baskets, flower bouquets and chocolate boxes - is carefully and lovingly created entirely by hand. This means every product is unique.",
+    "q3": "Can I order a custom design?",
+    "a3": "Of course! Our main work is to bring your dream design to life. Contact us through our 'Contact' page, share your ideas, and we will create a unique composition for you.",
+    "q4": "How far in advance should I place an order?",
+    "a4": "Especially for large baskets and complex designs, it is recommended to place your order at least 1-2 weeks before your wedding or engagement date. For small gifts, ordering 2-3 days in advance is usually sufficient."
+  },
+  "stats": {
+    "title": "Our Quality in Numbers",
+    "satisfied_customers": "Satisfied Customers",
+    "compositions": "Delicate Compositions",
+    "satisfaction_rate": "Perfect Rating"
+  },
+  "cta": {
+    "title": "Let's Create Your Dream Design Together",
+    "subtitle": "Custom baskets, flower bouquets or gift compositions. Share your ideas with us, and we will bring them to life."
+  },
+  "footer": {
+    "copyright": "© {year} Designed Shalala. All rights reserved.",
+    "about": "About",
+    "products": "Products",
+    "contact": "Contact"
+  },
+  "cart": {
+    "added": "\"{title}\" added to cart",
+    "removed": "\"{title}\" removed from cart"
+  }
 }

@@ -1,15 +1,127 @@
 {
-    "home": {
-        "title": "HR-vakansiyaları",
-        "description": "HR-vakansiyaları"
+  "home": {
+    "title": "Designed Shalala - Zərif Toxunuşlar",
+    "description": "Xonçalar, Gül və Şokolad kompozisiyaları"
+  },
+  "navigation": {
+    "home": "Ana səhifə",
+    "about": "Haqqımızda",
+    "product": "Məhsullar",
+    "contact": "Əlaqə"
+  },
+  "buttons": {
+    "button_hero": "Kəşf et",
+    "discover": "Kəşf et",
+    "add_to_cart": "Səbətə Əlavə Et",
+    "view_details": "Ətraflı",
+    "checkout": "Ödənişə Keç",
+    "contact_now": "İndi Əlaqə Saxlayın",
+    "start_chat": "Söhbətə Başlayın",
+    "follow_us": "Bizi İzləyin",
+    "learn_more": "Haqqımızda Daha Ətraflı"
+  },
+  "hero": {
+    "title": "Zərif",
+    "rotating_texts": ["Toxunuşlar", "Detallar", "Zövq", "Anlar!"]
+  },
+  "about": {
+    "hero_title": "Hər Anı Xüsusi Edirik",
+    "hero_subtitle": "Zərif toxunuşlar, əl işi dizaynlar və unudulmaz anlar.",
+    "story_title": "Bir Hədiyyədən Daha Artığı",
+    "story_p1": "Designed Shalala standart məhsullar satan bir mağaza deyil. Bura, sənətkarlığın və zərifliyin hər bir detala həkk edildiyi bir emalatxanadır.",
+    "story_p2": "Bizim üçün hər bir xonça sadəcə bir əşya deyil; o, sizin ən xüsusi gününüzə göstərilən diqqətin bir parçasıdır. Hər gül buketi duyğularınızı, hər şokolad qutusu isə ən şirin anlarınızı təmsil edir.",
+    "story_p3": "Çünki biz inanırıq ki, ən gözəl hədiyyələr xüsusi diqqət və həssaslıqla hazırlanır.",
+    "process_title": "Zərifliyə Gedən Yol",
+    "process_step1_title": "Fərdi Dizayn",
+    "process_step1_desc": "Sizin xəyallarınızı dinləyir və hər bir detal üçün xüsusi bir dizayn konsepsiyası yaradırıq.",
+    "process_step2_title": "Sevgi ilə Hazırlıq",
+    "process_step2_desc": "Hər bir kompozisiya yüksək keyfiyyətli materiallarla, diqqət və sevgi ilə əl ilə hazırlanır.",
+    "process_step3_title": "Zərif Təqdimat",
+    "process_step3_desc": "Sifarişiniz tam arzuladığınız kimi, ən xırda detalına qədər mükəmməl şəkildə sizə təqdim olunur.",
+    "cta_title": "Sizin Xüsusi Gününüzü Birlikdə Planlayaq",
+    "cta_text": "İstər xonça, istər gül, istərsə də xüsusi hədiyyə olsun, bizə güvənə bilərsiniz.",
+    "philosophy_label": "Bizim Fəlsəfəmiz",
+    "philosophy_title": "Hər Detalda Bir Hekayə",
+    "philosophy_desc": "Biz inanırıq ki, ən gözəl hədiyyələr sevgi ilə hazırlananlardır. Hər bir kompozisiya, xonça və buket, sizin ən xüsusi anlarınızı unudulmaz etmək üçün zərifliklə, əl ilə hazırlanır."
+  },
+  "products": {
+    "hero_title": "Sizin Xüsusi Gününüz Üçün",
+    "hero_subtitle": "Nişan, toy və ya zərif bir hədiyyə üçün ən unikal seçimlər burada.",
+    "all": "Hamısı",
+    "categories": {
+      "xoncalar": "Xonçalar",
+      "gul": "Gül",
+      "sokolad": "Şokolad"
     },
-    "navigation": {
-        "home": "Ana səhifə",
-        "about": "Haqqımızda",
-        "product": "Məhsullar",
-        "contact": "Əlaqə"
-    },
-    "buttons":{
-        "button_hero":"Kəşf et"
-    }
+    "specs_title": "Xüsusiyyətlər:",
+    "no_specs": "Bu məhsul üçün əlavə xüsusiyyət yoxdur.",
+    "for_special_days": "Xüsusi günləriniz üçün",
+    "breadcrumb_home": "Ana Səhifə",
+    "breadcrumb_products": "Məhsullar"
+  },
+  "product_detail": {
+    "add_to_cart": "Səbətə Əlavə Et",
+    "specs_title": "Xüsusiyyətlər:"
+  },
+  "basket": {
+    "title": "SƏBƏTİNİZ",
+    "empty": "Səbətiniz boşdur.",
+    "view_products": "Məhsullara Bax",
+    "category": "Kateqoriya:",
+    "remove": "Məhsulu sil",
+    "decrease": "Sayını azalt",
+    "increase": "Sayını artır",
+    "order_summary": "Sifariş Xülasəsi",
+    "subtotal": "Cəmi",
+    "total": "Yekun Məbləğ",
+    "checkout": "Ödənişə Keç",
+    "checkout_message": "Salam! Sifariş etmək istəyirəm:\n\nMənim Sifarişlərim:\n--------------------------",
+    "checkout_item": "Məhsul:",
+    "checkout_quantity": "Say:",
+    "checkout_price": "Qiymət:",
+    "checkout_total": "*Yekun Məbləğ:",
+    "currency": "AZN"
+  },
+  "contact": {
+    "hero_title": "Bizimlə Əlaqə",
+    "hero_subtitle": "Xəyalınızdakı dizaynı gerçəkləşdirmək üçün buradayıq.",
+    "title": "Sualınız Var?",
+    "whatsapp_title": "WhatsApp ilə Sifariş",
+    "whatsapp_desc": "Xüsusi dizaynlar, xonça və hədiyyələr üçün bizə birbaşa yazın.",
+    "instagram_title": "Instagram-da İzləyin",
+    "instagram_desc": "Ən son işlərimizi görmək, ilham almaq və ya DM vasitəsilə yazmaq üçün.",
+    "whatsapp_message": "Salam! Xüsusi sifarişlə bağlı sualım var."
+  },
+  "faq": {
+    "title": "Tez-tez Verilən Suallar",
+    "subtitle": "Sifariş, çatdırılma və məhsullarımız haqqında ən çox maraq doğuran sualların cavabları.",
+    "q1": "Sifarişi necə verə bilərəm?",
+    "a1": "Sifariş vermək çox asandır! Bəyəndiyiniz məhsulu səbətə əlavə edib, səbət səhifəsindən 'Ödənişə Keç' düyməsinə basaraq WhatsApp vasitəsilə bizimlə birbaşa əlaqə saxlaya bilərsiniz.",
+    "q2": "Məhsullar əl işidir?",
+    "a2": "Bəli, 'Designed Shalala'-dakı hər bir kompozisiya – xonçalar, gül buketləri və şokolad qutuları – xüsusi diqqət və sevgi ilə tamamilə əl ilə hazırlanır. Bu, hər məhsulun unikal olması deməkdir.",
+    "q3": "Xüsusi dizayn sifariş etmək mümkündürmü?",
+    "a3": "Əlbəttə! Bizim əsas işimiz sizin xəyallarınızdakı dizaynı gerçəkləşdirməkdir. 'Əlaqə' səhifəmizdən bizimlə əlaqə saxlayın, ideyalarınızı bölüşün, biz də sizin üçün unikal bir kompozisiya yaradaq.",
+    "q4": "Sifarişi nə qədər müddət əvvəl vermək lazımdır?",
+    "a4": "Xüsusilə böyük xonça və kompleks dizaynlar üçün toy və ya nişan tarixinizdən ən azı 1-2 həftə əvvəl sifariş verməyiniz məsləhətdir. Kiçik hədiyyələr üçün 2-3 gün əvvəldən sifariş adətən kifayət edir."
+  },
+  "stats": {
+    "title": "Keyfiyyətimiz Rəqəmlərdə",
+    "satisfied_customers": "Məmnun Müştəri",
+    "compositions": "Zərif Kompozisiya",
+    "satisfaction_rate": "Mükəmməl Rəy Oranı"
+  },
+  "cta": {
+    "title": "Xəyalınızdakı Dizaynı Birlikdə Yaradaq",
+    "subtitle": "Xüsusi xonçalar, gül buketləri və ya hədiyyə kompozisiyaları. İdeyalarınızı bizimlə bölüşün, biz onları gerçəkləşdirək."
+  },
+  "footer": {
+    "copyright": "© {year} Designed Shalala. Bütün hüquqlar qorunur.",
+    "about": "Haqqımızda",
+    "products": "Məhsullar",
+    "contact": "Əlaqə"
+  },
+  "cart": {
+    "added": "\"{title}\" səbətə əlavə olundu",
+    "removed": "\"{title}\" səbətdən silindi"
+  }
 }

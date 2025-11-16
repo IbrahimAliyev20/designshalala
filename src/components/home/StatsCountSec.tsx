@@ -1,17 +1,20 @@
 import StatsCount from "../ui/statscount";
+import { getTranslations } from "next-intl/server";
 
-const stats = [
-  { value: 100, suffix: "+", label: "Məmnun Müştəri" },
-  { value: 50, suffix: "+", label: "Zərif Kompozisiya" },
-  { value: 99, suffix: "%", label: "Mükəmməl Rəy Oranı" },
-];
+export default async function StatsCountSec() {
+  const t = await getTranslations("stats");
 
-export default function StatsCountSec() {
+  const stats = [
+    { value: 100, suffix: "+", label: t("satisfied_customers") },
+    { value: 50, suffix: "+", label: t("compositions") },
+    { value: 99, suffix: "%", label: t("satisfaction_rate") },
+  ];
+
   return (
     <StatsCount
       stats={stats}
-      title="Keyfiyyətimiz Rəqəmlərdə"
-        showDividers={true}
+      title={t("title")}
+      showDividers={true}
     />
   );
 }

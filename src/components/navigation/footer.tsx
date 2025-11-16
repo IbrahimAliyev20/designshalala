@@ -1,17 +1,18 @@
-import Link from "next/link";
+"use client";
+
 import { Instagram } from "lucide-react";
 import Container from "../shared/container";
 import Image from "next/image";
-
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 export function Footer() {
+  const t = useTranslations("footer");
+  const tNav = useTranslations("navigation");
+
   return (
-    // DƏYİŞİKLİK: Açıq rəngli, zərif fon
     <footer className="bg-neutral-50 text-gray-700 border-t border-gray-200">
       <Container>
-        {/* DƏYİŞİKLİK: Mərkəzləşdirilmiş düzülüş */}
         <div className="flex flex-col items-center pt-6 pb-5">
-          
-          {/* 1. Logo */}
           <Link href="/" className="mb-4 block">
             <Image
               src="/images/logo.jpg"
@@ -22,18 +23,14 @@ export function Footer() {
             />
           </Link>
           
-          {/* 2. Əsas Keçidlər (Mobildə alt-alta, Desktopda yan-yana) */}
           <nav className="my-6">
             <ul className="flex flex-col items-center gap-4 md:flex-row md:gap-8">
-           
-
-           
               <li>
                 <Link
                   href="/about"
                   className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
                 >
-                  Haqqımızda
+                  {tNav("about")}
                 </Link>
               </li>
               <li>
@@ -41,7 +38,7 @@ export function Footer() {
                   href="/products"
                   className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
                 >
-                  Məhsullar
+                  {tNav("product")}
                 </Link>
               </li>
               <li>
@@ -49,16 +46,15 @@ export function Footer() {
                   href="/contact"
                   className="text-gray-600 hover:text-gray-900 transition-colors font-medium"
                 >
-                  Əlaqə
+                  {tNav("contact")}
                 </Link>
               </li>
             </ul>
           </nav>
 
-          {/* 3. Sosial Media İkonu */}
           <div className="flex space-x-4 mb-8">
             <Link
-              href="#" // Bura öz Instagram linkinizi qoyun
+              href="#"
               className="text-gray-500 hover:text-gray-900 transition-colors"
               aria-label="Instagram"
               target="_blank"
@@ -68,13 +64,11 @@ export function Footer() {
             </Link>
           </div>
 
-          {/* 4. Copyright (Ayırıcı xətt ilə) */}
-          <div className="w-full border-t border-gray-200  text-center">
+          <div className="w-full border-t border-gray-200 text-center">
             <p className="text-sm text-gray-500">
-              © {new Date().getFullYear()} Designed Shalala. Bütün hüquqlar qorunur.
+              {t("copyright", { year: new Date().getFullYear() })}
             </p>
           </div>
-
         </div>
       </Container>
     </footer>

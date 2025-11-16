@@ -3,19 +3,23 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import RotatingText from "../RotatingText";
 import { ShimmerButton } from "../ui/shimmer-button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default async function BannerHero() {
   const t = await getTranslations("buttons");
+  const tHero = await getTranslations("hero");
+
+  const rotatingTexts = tHero.raw("rotating_texts") as string[];
 
   return (
-    <div className="relative w-full h-[250px] md:h-[650px] overflow-hidden">
+    <div className="relative w-full h-[350px] sm:h-[450px] md:h-[650px] overflow-hidden">
       <Image
         src="/images/banner.png"
         alt="Banner"
         width={1920}
         height={600}
         className="absolute inset-0 w-full h-full object-cover"
+        priority
       />
       <div className="absolute inset-0 bg-[rgba(58,42,31,0.45)]" />
 
@@ -23,23 +27,25 @@ export default async function BannerHero() {
         className="
           absolute inset-0 z-10 flex h-fit 
           items-center justify-center text-center 
-          md:items-start md:pt-30 md:pl-30 md:justify-start md:text-left
+          px-4 sm:px-6 md:px-0
+          pt-50 sm:pt-12 md:pt-[120px] md:pl-[120px] md:items-start md:justify-start md:text-left
         "
       >
         <h1
           className="
-            text-3xl sm:text-4xl font-medium 
-            text-[#F3E8D2] md:text-8xl font-serif 
-            flex items-center text-center gap-3 
-            md:items-center md:text-left md:gap-5
+            text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-8xl font-medium 
+            text-[#F3E8D2] font-serif 
+            flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3
+            md:items-center md:justify-start md:text-left md:gap-5
             drop-shadow-[0_4px_15px_rgba(0,0,0,0.4)]
+            max-w-[90%] sm:max-w-[85%] md:max-w-none
           "
         >
-          Zərif
+          <span className="text-center md:text-left">{tHero("title")}</span>
           <RotatingText
-            texts={["Toxunuşlar", "Detallar", "Zövq", "Anlar!"]}
+            texts={rotatingTexts}
             mainClassName="
-              px-2 sm:px-2 md:px-3 
+              px-2 sm:px-2.5 md:px-3 
               bg-[#D4A85F33] 
               text-[#F3E8D2] 
               overflow-hidden 
@@ -62,7 +68,7 @@ export default async function BannerHero() {
       </div>
 
       <div
-        className="absolute inset-0 flex pb-10 items-end justify-center pointer-events-none md:pb-35 "
+        className="absolute inset-0 flex pb-6 sm:pb-8 md:pb-[140px] items-end justify-center pointer-events-none"
       >
         <Link href="/products" className="pointer-events-auto">
           <ShimmerButton
@@ -70,13 +76,12 @@ export default async function BannerHero() {
             shimmerColor="#D4A85F"
             borderRadius="40px"
           >
-            <span className="px-6 md:px-10 text-sm md:text-lg font-medium text-[#F3E8D2]">
+            <span className="px-4 sm:px-6 md:px-10 text-xs sm:text-sm md:text-lg font-medium text-[#F3E8D2]">
               {t("button_hero")}
             </span>
           </ShimmerButton>
         </Link>
       </div>
-      
     </div>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import products from "@/utils/product";
 import { CardProduct } from "../shared/CardProduct";
@@ -10,7 +9,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-
+import { Link } from "@/i18n/navigation";
 import Autoplay from "embla-carousel-autoplay";
 
 export function HomeProductCarousel() {
@@ -24,20 +23,18 @@ export function HomeProductCarousel() {
   );
 
   return (
-    <section className="py-12 md:py-24 ">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          {/* DƏYİŞİKLİK: Başlıq rəngi sərt qara (gray-900) əvəzinə brendin tünd qəhvəyi rəngi oldu */}
-          <h2 className="text-xl md:text-3xl font-bold text-[rgb(58,42,31)]">
+    <section className="py-8 sm:py-12 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 md:px-4">
+        <div className="flex  justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6 sm:mb-8">
+          <h2 className="text-lg sm:text-xl md:text-4xl font-bold text-[rgb(58,42,31)]">
             Məhsullar
           </h2>
-          {/* DƏYİŞİKLİK: Link rəngi mavi əvəzinə brendin tünd qəhvəyi rəngi oldu */}
           <Link
             href="/products"
-            className="flex items-center gap-2 text-sm md:text-base font-semibold text-[rgb(58,42,31)] hover:text-[rgb(58,42,31)]/80 transition-colors"
+            className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base font-semibold text-[rgb(58,42,31)] hover:text-[rgb(58,42,31)]/80 transition-colors"
           >
             Hamısına Bax
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
           </Link>
         </div>
 
@@ -51,13 +48,12 @@ export function HomeProductCarousel() {
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-2 sm:-ml-4">
             {allProducts.map((product) => (
               <CarouselItem
                 key={product.id}
-                className="pl-4 basis-[100%] md:basis-1/3"
+                className="pl-2 sm:pl-4 basis-[100%] sm:basis-[85%] md:basis-1/4 flex md:block"
               >
-                {/* Bu komponentin daxili rəngləri növbəti faylda düzəldilib */}
                 <CardProduct product={product} />
               </CarouselItem>
             ))}
