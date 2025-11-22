@@ -11,6 +11,15 @@ export function Product() {
   const categories: ProductCategory[] = ["Xonçalar", "Buklet", "Özəl Gün Xatirəsi"];
   const allProducts = products;
 
+  const getCategoryTranslation = (category: ProductCategory) => {
+    const categoryMap: Record<ProductCategory, string> = {
+      "Xonçalar": t("categories.xoncalar"),
+      "Buklet": t("categories.gul"),
+      "Özəl Gün Xatirəsi": t("categories.ozel_gun"),
+    };
+    return categoryMap[category] || category;
+  };
+
   const allTabValue = "all";
 
   return (
@@ -44,7 +53,7 @@ export function Product() {
                   className="group bg-transparent rounded-none border-b-2 border-transparent pb-4 px-2 text-sm md:text-base font-medium text-stone-500 data-[state=active]:text-[rgb(58,42,31)] data-[state=active]:border-b-[rgb(58,42,31)] data-[state=active]:shadow-none data-[state=active]:bg-transparent hover:text-[rgb(58,42,31)] transition-colors duration-200 whitespace-nowrap"
                 >
                   <span className="flex items-center gap-2">
-                    {category}
+                    {getCategoryTranslation(category)}
                     <span
                       className="items-center justify-center min-w-[20px] h-5 px-1.5 text-xs font-semibold rounded bg-[#D4A85F]/20 text-[rgb(58,42,31)] hidden group-data-[state=active]:bg-[rgb(58,42,31)] group-data-[state=active]:text-[#F3E8D2] group-data-[state=active]:inline-flex"
                     >
@@ -57,7 +66,7 @@ export function Product() {
           </TabsList>
 
           <TabsContent value={allTabValue} className="mt-0">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-4 md:gap-6">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
               {allProducts.map((product) => (
                 <CardProduct key={product.id} product={product} />
               ))}

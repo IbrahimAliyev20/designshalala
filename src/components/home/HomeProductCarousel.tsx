@@ -11,9 +11,11 @@ import {
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslations } from "next-intl";
 
 export function HomeProductCarousel() {
   const allProducts = products;
+  const t = useTranslations("products");
 
   const plugin = React.useRef(
     Autoplay({
@@ -27,13 +29,13 @@ export function HomeProductCarousel() {
       <div className="container mx-auto px-4 sm:px-6 md:px-4">
         <div className="flex  justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6 sm:mb-8">
           <h2 className="text-lg sm:text-xl md:text-4xl font-bold text-[rgb(58,42,31)]">
-            Məhsullar
+            {t("title")}
           </h2>
           <Link
             href="/products"
             className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm md:text-base font-semibold text-[rgb(58,42,31)] hover:text-[rgb(58,42,31)]/80 transition-colors"
           >
-            Hamısına Bax
+            {t("view_all")}
             <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
           </Link>
         </div>
@@ -52,7 +54,7 @@ export function HomeProductCarousel() {
             {allProducts.map((product) => (
               <CarouselItem
                 key={product.id}
-                className="pl-2 sm:pl-4 basis-[100%] sm:basis-[85%] md:basis-1/4 flex md:block"
+                className="pl-2 sm:pl-4 basis-[100%] sm:basis-[85%] md:basis-1/3 flex md:block"
               >
                 <CardProduct product={product} />
               </CarouselItem>

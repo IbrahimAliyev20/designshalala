@@ -12,6 +12,16 @@ export default function BasketPage() {
   const t = useTranslations("basket");
   const tButtons = useTranslations("buttons");
   const tCart = useTranslations("cart");
+  const tProducts = useTranslations("products");
+
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: Record<string, string> = {
+      "Xonçalar": tProducts("categories.xoncalar"),
+      "Buklet": tProducts("categories.gul"),
+      "Özəl Gün Xatirəsi": tProducts("categories.ozel_gun"),
+    };
+    return categoryMap[category] || category;
+  };
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -97,7 +107,7 @@ export default function BasketPage() {
                       <div className="space-y-0.5 sm:space-y-1 mb-2 sm:mb-3">
                         <p className="text-xs sm:text-sm text-stone-600">
                           {t("category")}{" "}
-                          <span className="text-stone-700">{item.category}</span>
+                          <span className="text-stone-700">{getCategoryTranslation(item.category)}</span>
                         </p>
                       </div>
 

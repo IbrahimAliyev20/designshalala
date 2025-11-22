@@ -28,6 +28,15 @@ export function CardProduct({ product }: CardProductProps) {
   const tCart = useTranslations("cart");
   const tCommon = useTranslations("common");
 
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: Record<string, string> = {
+      "Xonçalar": t("categories.xoncalar"),
+      "Buklet": t("categories.gul"),
+      "Özəl Gün Xatirəsi": t("categories.ozel_gun"),
+    };
+    return categoryMap[category] || category;
+  };
+
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -52,17 +61,17 @@ export function CardProduct({ product }: CardProductProps) {
 
         <div className="flex items-center justify-between px-3 sm:px-4 mt-2">
           <span className="bg-[#D4A85F]/20 text-[rgb(58,42,31)] text-[10px] sm:text-xs font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
-            {product.category}
+            {getCategoryTranslation(product.category)}
           </span>
         </div>
 
         <CardFlipHeader className="px-3 sm:px-4 pt-2">
-          <CardFlipTitle className="text-[rgb(58,42,31)] text-base sm:text-lg md:text-xl line-clamp-2 mb-2">{product.title}</CardFlipTitle>
+          <CardFlipTitle className="text-[rgb(58,42,31)] text-base sm:text-lg md:text-xl line-clamp-1 mb-2">{product.title}</CardFlipTitle>
           <p className="text-lg sm:text-xl md:text-2xl font-bold text-[rgb(58,42,31)]">{product.price} {tCommon("currency")}</p>
         </CardFlipHeader>
 
         <CardFlipContent className="flex-1 overflow-auto px-3 sm:px-4 py-2">
-          <p className="text-sm sm:text-base text-stone-600 line-clamp-2 leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-600 line-clamp-1 leading-relaxed">
             {product.short_description}
           </p>
         </CardFlipContent>

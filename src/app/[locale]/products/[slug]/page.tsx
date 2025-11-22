@@ -23,6 +23,15 @@ export default function ProductDetailPage() {
   const tCart = useTranslations("cart");
   const tCommon = useTranslations("common");
 
+  const getCategoryTranslation = (category: string) => {
+    const categoryMap: Record<string, string> = {
+      "Xonçalar": tProducts("categories.xoncalar"),
+      "Buklet": tProducts("categories.gul"),
+      "Özəl Gün Xatirəsi": tProducts("categories.ozel_gun"),
+    };
+    return categoryMap[category] || category;
+  };
+
   const product = products.find((p) => p.slug === slug);
 
   if (!product) {
@@ -92,7 +101,7 @@ export default function ProductDetailPage() {
         {/* Product Info */}
         <div className="flex flex-col gap-3 sm:gap-4 bg-[#FAF7F2] h-full justify-between p-4 sm:p-5 md:p-6 rounded-lg sm:rounded-xl">
           <span className="text-[10px] sm:text-xs font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full bg-[#D4A85F]/20 text-[rgb(58,42,31)] self-start">
-            {product.category}
+            {getCategoryTranslation(product.category)}
           </span>
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold text-[rgb(58,42,31)] leading-tight sm:leading-normal">
             {product.title}

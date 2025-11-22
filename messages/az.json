@@ -47,11 +47,14 @@
   "products": {
     "hero_title": "Sizin Xüsusi Gününüz Üçün",
     "hero_subtitle": "Nişan, toy və ya zərif bir hədiyyə üçün ən unikal seçimlər burada.",
+    "title": "Məhsullar",
     "all": "Hamısı",
+    "view_all": "Hamısına Bax",
     "categories": {
       "xoncalar": "Xonçalar",
       "gul": "Buklet",
-      "sokolad": "Şokolad"
+      "sokolad": "Şokolad",
+      "ozel_gun": "Özəl Gün Xatirəsi"
     },
     "specs_title": "Xüsusiyyətlər:",
     "no_specs": "Bu məhsul üçün əlavə xüsusiyyət yoxdur.",
