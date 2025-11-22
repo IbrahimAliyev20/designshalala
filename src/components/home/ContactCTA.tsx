@@ -8,12 +8,13 @@ import { Link } from "@/i18n/navigation";
 export async function ContactCTA() {
   const t = await getTranslations("cta");
   const tButtons = await getTranslations("buttons");
+  const tCommon = await getTranslations("common");
 
   return (
     <section className="relative py-8 sm:py-10 md:py-20 overflow-hidden">
       <Image
         src="/images/ctabg.png"
-        alt="Contact"
+        alt={tCommon("contact_alt")}
         width={1920}
         height={600}
         className="absolute inset-0 z-0 w-full h-full object-cover"

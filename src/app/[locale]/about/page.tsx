@@ -7,13 +7,14 @@ import { Link } from "@/i18n/navigation";
 
 export default async function AboutPage() {
   const t = await getTranslations("about");
+  const tCommon = await getTranslations("common");
 
   return (
     <div className="bg-white text-stone-700">
       <section className="relative h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center pt-16 sm:pt-20">
         <Image
           src="/images/ctabg.png"
-          alt="About background"
+          alt={tCommon("about_bg_alt")}
           width={1920}
           height={1080}
           className="w-full h-full object-cover absolute inset-0 z-0"
@@ -35,9 +36,9 @@ export default async function AboutPage() {
 
       <section className="py-8 sm:py-12 md:py-24">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center">
-            <div className="text-sm sm:text-base md:text-lg text-stone-700 space-y-3 sm:space-y-4 leading-relaxed px-4 sm:px-6 md:px-0">
-              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-3 sm:mb-4 text-[rgb(58,42,31)]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-16 items-center">
+            <div className="text-sm sm:text-base md:text-lg text-stone-700 space-y-3 sm:space-y-4 leading-relaxed px-4 sm:px-6 md:px-0 md:col-span-2">
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold mb-6 sm:mb-8 text-[rgb(58,42,31)]">
                 {t("story_title")}
               </h2>
               <p className="text-sm sm:text-base md:text-lg">{t("story_p1")}</p>
@@ -47,13 +48,13 @@ export default async function AboutPage() {
               </p>
             </div>
             
-            <div className="relative w-full h-[250px] sm:h-[300px] md:h-[500px] rounded-xl overflow-hidden shadow-lg">
+            <div className="relative w-full h-[250px] sm:h-[300px] md:h-[500px] rounded-2xl overflow-hidden md:col-span-1">
               <Image
-                src="/images/bgaboutsec.jpg"
-                alt="Handcraft process"
-                width={800}
+                src="/images/aboutpage.jpg"
+                alt={tCommon("handcraft_alt")}
+                width={1200}
                 height={600}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 "
               />
             </div>
           </div>

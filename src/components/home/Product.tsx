@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 
 export function Product() {
   const t = useTranslations("products");
-  const categories: ProductCategory[] = ["Xonçalar", "Gül", "Şokolad"];
+  const categories: ProductCategory[] = ["Xonçalar", "Buklet", "Özəl Gün Xatirəsi"];
   const allProducts = products;
 
   const allTabValue = "all";

@@ -13,6 +13,7 @@ import { ShimmerButton } from "../ui/shimmer-button";
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("navigation");
+  const tCommon = useTranslations("common");
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -24,7 +25,7 @@ export function MobileMenu() {
           className="md:hidden text-white hover:bg-transparent"
         >
           <Menu className="h-7 w-7 hover:scale-110 transition-transform duration-300" />
-          <span className="sr-only">Toggle menu</span>
+          <span className="sr-only">{tCommon("toggle_menu")}</span>
         </Button>
       </SheetTrigger>
 
@@ -39,8 +40,8 @@ export function MobileMenu() {
         <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
           <Link href="/" onClick={() => setOpen(false)}>
             <Image
-              src="/images/logo.jpg"
-              alt="logo"
+              src="/images/logo1.png"
+              alt={tCommon("logo_alt")}
               width={130}
               height={130}
               className="h-9 w-auto rounded-md hover:scale-105 transition-transform"

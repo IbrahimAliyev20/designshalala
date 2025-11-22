@@ -21,6 +21,7 @@ export default function ProductDetailPage() {
   const tProducts = useTranslations("products");
   const tButtons = useTranslations("buttons");
   const tCart = useTranslations("cart");
+  const tCommon = useTranslations("common");
 
   const product = products.find((p) => p.slug === slug);
 
@@ -98,7 +99,7 @@ export default function ProductDetailPage() {
           </h1>
           <div className="flex items-baseline gap-2 sm:gap-3 my-1 sm:my-2">
             <span className="text-xl sm:text-2xl md:text-3xl font-bold text-[rgb(58,42,31)]">
-              {product.price.toFixed(2)} AZN
+              {product.price.toFixed(2)} {tCommon("currency")}
             </span>
           </div>
           <p className="text-sm sm:text-base leading-relaxed text-stone-700 mt-1 sm:mt-2">

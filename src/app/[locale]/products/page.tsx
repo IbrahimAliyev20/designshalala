@@ -5,13 +5,14 @@ import { getTranslations } from "next-intl/server";
 
 async function ProductsListingPage() {
   const t = await getTranslations("products");
+  const tCommon = await getTranslations("common");
 
   return (
     <div>
       <section className="relative h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center pt-16 sm:pt-20 overflow-hidden">
         <Image
           src="/images/ctabg.png"
-          alt="About background"
+          alt={tCommon("about_bg_alt")}
           width={1000}
           height={400}
           className="absolute object-cover inset-0 z-0 opacity-100 h-full w-full"

@@ -13,6 +13,7 @@ import { useCart } from "@/context/CartContext";
 
 export function Header() {
   const t = useTranslations("navigation");
+  const tCommon = useTranslations("common");
   const pathname = usePathname();
   
   const { totalItemCount } = useCart();
@@ -35,11 +36,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo.jpg"
-              alt="logo"
+              src="/images/logo1.png"
+              alt={tCommon("logo_alt")}
               width={130}
               height={130}
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
           </Link>
 

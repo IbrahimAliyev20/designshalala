@@ -1,7 +1,7 @@
 {
   "home": {
     "title": "Designed Shalala - Нежные Прикосновения",
-    "description": "Композиции из корзин, цветов и шоколада"
+    "description": "Композиции из корзин, букетов и шоколада"
   },
   "navigation": {
     "home": "Главная",
@@ -50,7 +50,7 @@
     "all": "Все",
     "categories": {
       "xoncalar": "Корзины",
-      "gul": "Цветы",
+      "gul": "Букет",
       "sokolad": "Шоколад"
     },
     "specs_title": "Характеристики:",
@@ -123,6 +123,19 @@
   "cart": {
     "added": "{title} добавлено в корзину",
     "removed": "{title} удалено из корзины"
+  },
+  "common": {
+    "toggle_menu": "Открыть/закрыть меню",
+    "currency": "AZN",
+    "logo_alt": "Логотип Designed Shalala",
+    "banner_alt": "Баннер",
+    "about_bg_alt": "Фон страницы О нас",
+    "contact_bg_alt": "Фон страницы Контакты",
+    "handcraft_alt": "Процесс ручной работы",
+    "handcrafted_gifts_alt": "Подарки ручной работы",
+    "whatsapp_icon_alt": "Иконка WhatsApp",
+    "instagram_icon_alt": "Иконка Instagram",
+    "contact_alt": "Контакты"
   }
 }
 

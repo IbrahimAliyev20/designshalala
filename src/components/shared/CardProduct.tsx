@@ -26,6 +26,7 @@ export function CardProduct({ product }: CardProductProps) {
   const t = useTranslations("products");
   const tButtons = useTranslations("buttons");
   const tCart = useTranslations("cart");
+  const tCommon = useTranslations("common");
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -36,9 +37,9 @@ export function CardProduct({ product }: CardProductProps) {
   };
 
   return (
-    <CardFlip className="w-full max-w-sm select-none h-full flex flex-col">
-      <CardFlipFront className="flex flex-col justify-between h-full md:h-auto">
-        <div className="mx-3 sm:mx-4 mt-3 sm:mt-4 h-40 sm:h-48 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2rem)] rounded-lg overflow-hidden">
+    <CardFlip className="w-full max-w-sm select-none h-full flex flex-col ">
+      <CardFlipFront className="flex flex-col justify-between h-full md:h-auto py-0">
+        <div className="w-full h-48 sm:h-56 md:h-64 rounded-t-lg overflow-hidden">
           <Link href={`/products/${product.slug}`} className="relative w-full h-full block">
             <Image
               src={product.main_image}
@@ -49,19 +50,19 @@ export function CardProduct({ product }: CardProductProps) {
           </Link>
         </div>
 
-        <div className="flex items-center justify-between px-3 sm:px-4">
+        <div className="flex items-center justify-between px-3 sm:px-4 mt-2">
           <span className="bg-[#D4A85F]/20 text-[rgb(58,42,31)] text-[10px] sm:text-xs font-semibold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full">
             {product.category}
           </span>
         </div>
 
-        <CardFlipHeader>
-          <CardFlipTitle className="text-[rgb(58,42,31)] text-sm sm:text-base md:text-lg line-clamp-1">{product.title}</CardFlipTitle>
-          <p className="text-lg sm:text-xl md:text-2xl font-bold text-[rgb(58,42,31)]">{product.price} AZN</p>
+        <CardFlipHeader className="px-3 sm:px-4 pt-2">
+          <CardFlipTitle className="text-[rgb(58,42,31)] text-base sm:text-lg md:text-xl line-clamp-2 mb-2">{product.title}</CardFlipTitle>
+          <p className="text-lg sm:text-xl md:text-2xl font-bold text-[rgb(58,42,31)]">{product.price} {tCommon("currency")}</p>
         </CardFlipHeader>
 
-        <CardFlipContent className="flex-1 overflow-auto px-3 sm:px-4">
-          <p className="text-xs sm:text-sm text-stone-600 line-clamp-1">
+        <CardFlipContent className="flex-1 overflow-auto px-3 sm:px-4 py-2">
+          <p className="text-sm sm:text-base text-stone-600 line-clamp-2 leading-relaxed">
             {product.short_description}
           </p>
         </CardFlipContent>
@@ -69,14 +70,14 @@ export function CardProduct({ product }: CardProductProps) {
         <CardFlipFooter className="flex gap-2 sm:gap-4 items-stretch px-3 sm:px-4 pb-3 sm:pb-4">
           <Link
             href={`/products/${product.slug}`}
-            className="flex-1 bg-[rgb(58,42,31)] py-1.5 sm:py-1 text-[#F3E8D2] px-2 sm:px-4 rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center text-xs sm:text-sm"
+            className="flex-1 bg-[rgb(58,42,31)] py-1.5 sm:py-1 text-white px-2 sm:px-4 rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center text-xs sm:text-sm font-semibold"
           >
             {tButtons("view_details")}
           </Link>
           <button
             onClick={handleAddToCart}
             aria-label={tButtons("add_to_cart")}
-            className="w-10 sm:w-12 bg-[rgb(58,42,31)] py-1.5 sm:py-1 text-[#F3E8D2] rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center"
+            className="w-10 sm:w-12 bg-[rgb(58,42,31)] py-1.5 sm:py-1 text-white rounded-lg hover:bg-[rgb(58,42,31)]/90 transition-colors flex items-center justify-center"
           >
             <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>

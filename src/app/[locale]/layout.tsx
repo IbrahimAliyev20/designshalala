@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Designed Shalala - Zərif Toxunuşlar",
-  description: "Xonçalar, Gül və Şokolad kompozisiyaları",
+  description: "Xonçalar, Buklet və Şokolad kompozisiyaları",
   viewport: {
     width: "device-width",
     initialScale: 1,

@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 export default async function BannerHero() {
   const t = await getTranslations("buttons");
   const tHero = await getTranslations("hero");
+  const tCommon = await getTranslations("common");
 
   const rotatingTexts = tHero.raw("rotating_texts") as string[];
 
@@ -15,7 +16,7 @@ export default async function BannerHero() {
     <div className="relative w-full h-[350px] sm:h-[450px] md:h-[650px] overflow-hidden">
       <Image
         src="/images/banner.png"
-        alt="Banner"
+        alt={tCommon("banner_alt")}
         width={1920}
         height={600}
         className="absolute inset-0 w-full h-full object-cover"

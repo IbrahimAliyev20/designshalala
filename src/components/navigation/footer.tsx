@@ -8,6 +8,7 @@ import { Link } from "@/i18n/navigation";
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("navigation");
+  const tCommon = useTranslations("common");
 
   return (
     <footer className="bg-neutral-50 text-gray-700 border-t border-gray-200">
@@ -15,11 +16,11 @@ export function Footer() {
         <div className="flex flex-col items-center pt-6 pb-5">
           <Link href="/" className="mb-4 block">
             <Image
-              src="/images/logo.jpg"
-              alt="Designed Shalala Logo"
+              src="/images/logo1.png"
+              alt={tCommon("logo_alt")}
               width={170}
               height={140}
-              className="h-10 w-auto"
+              className="h-20 w-auto"
             />
           </Link>
           

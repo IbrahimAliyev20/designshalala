@@ -1,7 +1,7 @@
 {
   "home": {
     "title": "Designed Shalala - Zərif Toxunuşlar",
-    "description": "Xonçalar, Gül və Şokolad kompozisiyaları"
+    "description": "Xonçalar, Buklet və Şokolad kompozisiyaları"
   },
   "navigation": {
     "home": "Ana səhifə",
@@ -50,7 +50,7 @@
     "all": "Hamısı",
     "categories": {
       "xoncalar": "Xonçalar",
-      "gul": "Gül",
+      "gul": "Buklet",
       "sokolad": "Şokolad"
     },
     "specs_title": "Xüsusiyyətlər:",
@@ -123,5 +123,18 @@
   "cart": {
     "added": "\"{title}\" səbətə əlavə olundu",
     "removed": "\"{title}\" səbətdən silindi"
+  },
+  "common": {
+    "toggle_menu": "Menyunu aç/bağla",
+    "currency": "AZN",
+    "logo_alt": "Designed Shalala Loqo",
+    "banner_alt": "Banner",
+    "about_bg_alt": "Haqqımızda fonu",
+    "contact_bg_alt": "Əlaqə fonu",
+    "handcraft_alt": "Əl işi prosesi",
+    "handcrafted_gifts_alt": "Əl işi hədiyyələr",
+    "whatsapp_icon_alt": "WhatsApp İkonu",
+    "instagram_icon_alt": "Instagram İkonu",
+    "contact_alt": "Əlaqə"
   }
 }

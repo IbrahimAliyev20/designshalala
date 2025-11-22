@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -9,22 +8,23 @@ import { Link } from "@/i18n/navigation";
 export function AboutSec() {
   const t = useTranslations("about");
   const tButtons = useTranslations("buttons");
+  const tCommon = useTranslations("common");
 
   return (
     <section className="py-8 sm:py-12 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 md:px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-16 items-center">
-          <div className="w-full h-[250px] sm:h-[300px] md:h-[450px] relative rounded-xl overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-16 items-center">
+          <div className="w-full h-[250px] sm:h-[300px] md:h-[500px] relative rounded-xl overflow-hidden shadow-lg md:col-span-1">
             <Image
-              src="/images/bgaboutsec.jpg"
-              alt="Handcrafted gifts"
+              src="/images/aboutimages.jpg"
+              alt={tCommon("handcrafted_gifts_alt")}
               width={1000}
               height={600}
               className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
             />
           </div>
 
-          <div className="flex flex-col h-full justify-between items-center md:items-start gap-4 sm:gap-6">
+          <div className="flex flex-col h-full justify-between items-center md:items-start gap-4 sm:gap-6 md:col-span-2">
             <span className="text-xs sm:text-sm font-semibold text-[#725d39b5] uppercase tracking-wider text-center md:text-left w-full">
               {t("philosophy_label")}
             </span>

@@ -16,6 +16,7 @@ import { Link } from "@/i18n/navigation";
 export default function ContactPage() {
   const t = useTranslations("contact");
   const tButtons = useTranslations("buttons");
+  const tCommon = useTranslations("common");
 
   const handleWhatsAppRedirect = () => {
     const phoneNumber = "994993291807";
@@ -37,7 +38,7 @@ export default function ContactPage() {
       <section className="relative h-[250px] sm:h-[300px] md:h-[400px] flex items-center justify-center pt-16 sm:pt-20 overflow-hidden">
         <Image
           src="/images/ctabg.png"
-          alt="Contact background"
+          alt={tCommon("contact_bg_alt")}
           width={1920}
           height={600}
           priority
@@ -70,7 +71,7 @@ export default function ContactPage() {
                   <div className="flex items-center justify-center w-full rounded-full mb-3 sm:mb-4">
                     <Image
                       src="/images/whatsapp.png"
-                      alt="WhatsApp Icon"
+                      alt={tCommon("whatsapp_icon_alt")}
                       width={32}
                       height={32}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
@@ -99,7 +100,7 @@ export default function ContactPage() {
                   <div className="flex items-center justify-center w-full rounded-full mb-3 sm:mb-4">
                     <Image
                       src="/images/instagram.png"
-                      alt="Instagram Icon"
+                      alt={tCommon("instagram_icon_alt")}
                       width={32}
                       height={32}
                       className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
